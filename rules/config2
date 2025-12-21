@@ -16,30 +16,29 @@ dns-direct-fallback-proxy = true
 
 [Proxy Group]
 # 核心功能分组
-♻️ 自动选择 = url-test, *, http://www.gstatic.com/generate_204, 300, 50
-🚀 手动切换 = select, *
+🚀 手动切换 = select, PROXY, DIRECT
 # 主节点选择（整合所有节点选项）
-🚀 节点选择 = select, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
+🚀 节点选择 = select, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换
 # 细分服务分组
-📲 Telegram = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-💬 AI = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-✖ X = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-📹 YouTube = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-🎥 Netflix = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-🎵 TikTok = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-📄 Ehentai = select, 🚀 节点选择, ♻️ 自动选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-📺 巴哈姆特 = select, 🇨🇳 台湾节点, 🚀 节点选择, 🚀 手动切换, DIRECT
-📺 哔哩哔哩 = select, 🎯 全球直连, 🇨🇳 台湾节点, 🇭🇰 香港节点
-🌍 国外媒体 = select, 🚀 节点选择, ♻️ 自动选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, DIRECT
-🌏 国内媒体 = select, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🚀 手动切换
-📢 谷歌服务= select, DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🚀 手动切换
-Ⓜ️ 微软服务 = select, DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🚀 手动切换
-🍎 苹果服务 = select, DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🚀 手动切换
+📲 Telegram = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+💬 AI = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+🕊️ Twitter = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+📹 YouTube = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+🎥 Netflix = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+🎵 TikTok = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+📄 Ehentai = select, DIRECT, 🚀 节点选择, 🇸🇬 新加坡节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+📺 巴哈姆特 = select, DIRECT, 🚀 节点选择, 🇨🇳 台湾节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+📺 哔哩哔哩 = select, DIRECT, 🇨🇳 台湾节点, 🇭🇰 香港节点, policy-select-name=🇭🇰 香港节点
+🌍 国外媒体 = select, DIRECT, 🚀 节点选择, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+🌏 国内媒体 = select, DIRECT, 🚀 节点选择, 🎯 全球直连, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🚀 手动切换, policy-select-name=🎯 全球直连
+📢 谷歌服务= select, DIRECT, 🚀 节点选择, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
+Ⓜ️ 微软服务 = select, DIRECT, 🚀 节点选择, 🎯 全球直连, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🎯 全球直连
+🍎 苹果服务 = select, DIRECT, 🚀 节点选择, 🎯 全球直连, 🇺🇲 美国节点, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🎯 全球直连
 # 基础功能分组
-🎯 全球直连 = select, DIRECT, 🚀 节点选择, ♻️ 自动选择
-🛑 广告拦截 = select, REJECT, DIRECT
-🍃 应用净化 = select, REJECT, DIRECT
-🐟 漏网之鱼 = select, 🚀 节点选择, ♻️ 自动选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换
+🎯 全球直连 = select, DIRECT, 🚀 节点选择, policy-select-name=DIRECT
+🛑 广告拦截 = select, REJECT, DIRECT, policy-select-name=REJECT
+🍃 应用净化 = select, REJECT, DIRECT, policy-select-name=REJECT
+🐟 漏网之鱼 = select, 🚀 节点选择, DIRECT, 🇭🇰 香港节点, 🇨🇳 台湾节点, 🇸🇬 新加坡节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 🇰🇷 韩国节点, 🚀 手动切换, policy-select-name=🚀 节点选择
 # 节点分组（按地区）- 自动测速选优
 🇭🇰 香港节点 = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=HK|Hong|hong|香港|深港|沪港|京港|港
 🇨🇳 台湾节点 = url-test,url=http://www.gstatic.com/generate_204,interval=600,tolerance=0,timeout=5,select=0,policy-regex-filter=TW|Taiwan|taiwan|台湾|台北|台中|新北|彰化
@@ -52,6 +51,7 @@ dns-direct-fallback-proxy = true
 # 1. 拦截类规则（优先执行）
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list,🛑 广告拦截
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list,🍃 应用净化
+RULE-SET,https://raw.githubusercontent.com/Cats-Team/AdRules/main/adrules.list, 🛑 广告拦截
 # 2. 直连类规则（国内服务+局域网）
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list,🎯 全球直连
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list,🎯 全球直连
@@ -67,7 +67,7 @@ RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsof
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list,🍎 苹果服务
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Telegram.list,📲 Telegram
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list,💬 AI
-RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Twitter.list,✖ X
+RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/refs/heads/master/Clash/Ruleset/Twitter.list,🕊️ Twitter 
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/YouTube.list,📹 YouTube
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/Netflix.list,🎥 Netflix
 RULE-SET,https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/TikTok.list,🎵 TikTok
