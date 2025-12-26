@@ -392,8 +392,6 @@ function addRegions(config) {
                   ...groupBaseOption,
                   name: region.name,
                   type: "select",
-                  interval: test_interval,
-                  tolerance: test_tolerance,
                   use: providers,
                   filter: region.matcher,
                   icon: region.icon,
@@ -404,8 +402,6 @@ function addRegions(config) {
                   name: region.name,
                   type: "select",
                   use: providers,
-                  interval: test_interval,
-                  tolerance: test_tolerance,
                   "exclude-filter": exclude,
                   icon: region.icon,
               });
@@ -435,8 +431,6 @@ function addRegions(config) {
               ...groupBaseOption,
               name: region.name,
               type: "select",
-              interval: test_interval,
-              tolerance: test_tolerance,
               proxies: proxies,
               icon: region.icon,
           });
