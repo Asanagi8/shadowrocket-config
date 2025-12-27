@@ -381,7 +381,7 @@ function addRegions(config) {
 
     if (entry.name === "节点选择") {
       entry.proxies.splice(2, 0, "地区选择");
-    } else if (entry.type === "select" && !entry.("include-all")) {
+    } else if (entry.type === "select" && !entry.["include-all"]) {
       entry.proxies.push(...regions);
     }
   }
