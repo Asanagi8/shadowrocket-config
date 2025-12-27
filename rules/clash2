@@ -407,7 +407,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "节点选择",
       "type": "select",
-      "proxies": ["手动选择", "延迟选优", "故障转移"],
+      "proxies": ["手动选择", "延迟选优", "故障转移","全局直连"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg"
     },
@@ -468,21 +468,21 @@ function main(config) {
       ...groupBaseOption,
       "name": "AI",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/chatgpt.svg"
     },
     {
       ...groupBaseOption,
       "name": "TikTok",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/tiktok.svg"
     },
     {
       ...groupBaseOption,
       "name": "X",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/twitter.svg"
     },
     {
@@ -539,7 +539,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "漏网之鱼",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择","全局直连", "地区选择"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/fish.svg"
     }
