@@ -41,6 +41,121 @@ const regionConfig = [
       icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tw.svg"
   },
   {
+      name: "🇬🇧 英国 📶",
+      matcher: "英|🇬🇧|uk|united kingdom|great britain",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/gb.svg"
+  },
+  {
+      name: "🇫🇷 法国 📶",
+      matcher: "法国|🇫🇷|FR|France",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/fr.svg"
+  },
+  {
+      name: "🇩🇪 德国 📶",
+      matcher: "德国|🇩🇪|DE|germany",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/de.svg"
+  },
+  {
+      name: "🇵🇱 波兰 📶",
+      matcher: "波兰|🇵🇱|Poland|PL|Poland",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/pl.svg"
+  },
+  {
+      name: "🇳🇱 荷兰 📶",
+      matcher: "荷兰|🇳🇱|NL|Netherlands",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/nl.svg"
+  },
+  {
+      name: "🇮🇪 爱尔兰 📶",
+      matcher: "爱尔兰|🇮🇪|IE|Ireland",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ie.svg"
+  },
+  {
+      name: "🇸🇪 瑞典 📶",
+      matcher: "瑞典|🇸🇪|SE|Sweden",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/se.svg"
+  },
+  {
+      name: "🇷🇺 俄罗斯 📶",
+      matcher: "俄罗斯|🇷🇺|RU|Russia",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ru.svg"
+  },
+  {
+      name: "🇮🇹 意大利 📶",
+      matcher: "意大利|🇮🇹|IT|Italy",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/it.svg"
+  },
+  {
+      name: "🇪🇸 西班牙 📶",
+      matcher: "西班牙|🇪🇸|ES|Spain",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/es.svg"
+  },
+  {
+      name: "🇵🇹 葡萄牙 📶",
+      matcher: "葡萄牙|🇵🇹|PT|Portugal",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/pt.svg"
+  },
+  {
+      name: "🇹🇷 土耳其 📶",
+      matcher: "土耳其|🇹🇷|TR|Turkey",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tr.svg"
+  },
+  {
+      name: "🇦🇷 阿根廷 📶",
+      matcher: "阿根廷|🇦🇷|AR|Argentina",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ar.svg"
+  },
+  {
+      name: "🇨🇦 加拿大 📶",
+      matcher: "加拿大|🇨🇦|CA|Canada",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ca.svg"
+  },
+  {
+      name: "🇦🇺 澳大利亚 📶",
+      matcher: "澳大利亚|🇦🇺|AU|Australia",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/au.svg"
+  },
+  {
+      name: "🇮🇷 伊朗 📶",
+      matcher: "伊朗|🇮🇷|IR|Iran",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ir.svg"
+  },
+  {
+      name: "🇮🇩 印度尼西 📶",
+      matcher: "印度尼西亚|印尼|🇮🇩|ID|Indonesia",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/id.svg"
+  },
+  {
+      name: "🇲🇾 马来西亚 📶",
+      matcher: "马来|🇲🇾|MY|Malaysia",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/my.svg"
+  },
+  {
+      name: "🇵🇭 菲律宾 📶",
+      matcher: "菲律宾|🇵🇭|PH|Philippines",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ph.svg"
+  },
+  {
+      name: "🇮🇳 印度 📶",
+      matcher: "印度|🇮🇳|IN|India",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/in.svg"
+  },
+  {
+      name: "🇻🇳 越南 📶",
+      matcher: "越南|🇻🇳|VN|Vietnam",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/vn.svg"
+  },
+  {
+      name: "🇹🇭 泰国 📶",
+      matcher: "泰国|🇹🇭|TH|Thailand",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/th.svg"
+  },
+  {
+      name: "🇨🇳 中国 📶",
+      matcher: "中国|🇨🇳|CN|cn|china",
+      icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/cn.svg"
+  },
+  {
       name: "🌐 其他 📶",
       icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png"
   }
@@ -55,7 +170,7 @@ const foreignNameservers = [
   "https://1.1.1.1/dns-query", // CloudflareDNS
   "https://8.8.8.8/dns-query", // GoogleDNS  
 ];
-// DNS配置
+// DNS配置（无泄漏）
 const dnsConfig = {
   "enable": true,
   "listen": "0.0.0.0:1053",
@@ -67,25 +182,20 @@ const dnsConfig = {
   "enhanced-mode": "fake-ip",
   "fake-ip-range": "198.18.0.1/16",
   "fake-ip-filter": [
-    // 本地主机/设备
     "+.lan",
     "+.local",
-    // // Windows网络出现小地球图标
     "+.msftconnecttest.com",
     "+.msftncsi.com",
-    // QQ快速登录检测失败
     "localhost.ptlogin2.qq.com",
     "localhost.sec.qq.com",
-      // 追加以下条目
     "+.in-addr.arpa", 
     "+.ip6.arpa",
     "time.*.com",
     "time.*.gov",
     "pool.ntp.org",
-    // 微信快速登录检测失败
     "localhost.work.weixin.qq.com"
   ],
-  "default-nameserver": ["223.5.5.5","119.29.29.29"],//可修改成自己ISP的DNS
+  "default-nameserver": ["223.5.5.5","119.29.29.29"],
   "nameserver": [...foreignNameservers],
   "proxy-server-nameserver":[...domesticNameservers],
   "nameserver-policy": {
@@ -200,7 +310,7 @@ const ruleProviders = {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/Twitter.txt",
-    "path": "./ruleset/loyalsoldier/twitter.yaml"
+    "path": "./ruleset/xiaolin-007/Twitter.yaml"
   },
   "BilibiliHMT": {
     ...ruleProviderCommon,
@@ -221,15 +331,13 @@ const ruleProviders = {
     "path": "./ruleset/xiaolin-007/TikTok.yaml"    
   },
 };
-// 规则
+// 规则（调整了顺序）
 const rules = [
-  // 自定义规则
-  "DOMAIN-SUFFIX,googleapis.cn,节点选择", // Google服务
-  "DOMAIN-SUFFIX,gstatic.com,节点选择", // Google静态资源
-  "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,节点选择", // Google Play下载服务
-  "DOMAIN-SUFFIX,github.io,节点选择", // Github Pages
-  "DOMAIN,v2rayse.com,节点选择", // V2rayse节点工具
-  // Loyalsoldier 规则集
+  "DOMAIN-SUFFIX,googleapis.cn,节点选择",
+  "DOMAIN-SUFFIX,gstatic.com,节点选择",
+  "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,节点选择",
+  "DOMAIN-SUFFIX,github.io,节点选择",
+  "DOMAIN,v2rayse.com,节点选择",
   "RULE-SET,applications,全局直连",
   "RULE-SET,private,全局直连",
   "RULE-SET,reject,广告过滤",
@@ -238,11 +346,11 @@ const rules = [
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,Netflix,Netflix",
   "RULE-SET,Spotify,Spotify",
+  "RULE-SET,BilibiliHMT,哔哩哔哩港澳台",  
+  "RULE-SET,google,谷歌服务",
   "RULE-SET,AI,AI",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,X,X",
-  "RULE-SET,BilibiliHMT,哔哩哔哩港澳台",  
-  "RULE-SET,google,谷歌服务",
   "RULE-SET,proxy,节点选择",
   "RULE-SET,gfw,节点选择",
   "RULE-SET,tld-not-cn,节点选择",
@@ -250,18 +358,13 @@ const rules = [
   "RULE-SET,lancidr,全局直连,no-resolve",
   "RULE-SET,cncidr,全局直连,no-resolve",
   "RULE-SET,telegramcidr,电报消息,no-resolve",
-  // 其他规则
   "GEOSITE,CN,全局直连",
   "GEOIP,LAN,全局直连,no-resolve",
   "GEOIP,CN,全局直连,no-resolve",
   "MATCH,漏网之鱼"
 ];
 
-
-
-
-
-// 添加地区分组
+// 添加地区分组（保留手动 select）
 function addRegions(config) {
   let regions = [];
   if (!config.proxies) {
@@ -349,6 +452,7 @@ function addRegions(config) {
   }
   config["proxy-groups"] = entries;
 }
+
 // 程序入口
 function main(config) {
   const proxyCount = config?.proxies?.length ?? 0;
@@ -358,16 +462,14 @@ function main(config) {
     throw new Error("配置文件中未找到任何代理");
   }
 
-  // 覆盖原配置中DNS配置
   config["dns"] = dnsConfig;
 
-  // 覆盖原配置中的代理组
   config["proxy-groups"] = [
     {
       ...groupBaseOption,
       "name": "节点选择",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["手动选择", "延迟选优", "故障转移"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/adjust.svg"
     },
@@ -380,72 +482,93 @@ function main(config) {
     },
     {
       ...groupBaseOption,
+      "name": "延迟选优",
+      "type": "url-test",
+      interval: test_interval,
+      tolerance: test_tolerance,
+      "include-all": true,
+      "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
+      "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/speed.svg"
+    },
+    {
+      ...groupBaseOption,
+      "name": "故障转移",
+      "type": "fallback",
+      "include-all": true,
+      "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
+      "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/ambulance.svg"
+    },
+    {
+      ...groupBaseOption,
       "name": "谷歌服务",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/google.svg"
     },
     {
       ...groupBaseOption,
       "name": "YouTube",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/youtube.svg"
     },
     {
       ...groupBaseOption,
       "name": "Netflix",
       "type": "select",
-      "proxies": ["节点选择", "全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移", "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/netflix.svg"
     },
     {
       ...groupBaseOption,
       "name": "电报消息",
       "type": "select",
-      "proxies": ["节点选择", "全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移", "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/telegram.svg"
     },
     {
       ...groupBaseOption,
       "name": "AI",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移"],
+      "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/chatgpt.svg"
     },
     {
       ...groupBaseOption,
       "name": "TikTok",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移"],
+      "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/tiktok.svg"
     },
     {
       ...groupBaseOption,
       "name": "X",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移"],
+      "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/twitter.svg"
     },
     {
       ...groupBaseOption,
       "name": "微软服务",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/microsoft.svg"
     },
     {
       ...groupBaseOption,
       "name": "苹果服务",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/apple.svg"
     },
     {
       ...groupBaseOption,
       "name": "哔哩哔哩港澳台",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移","全局直连"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/bilibili.svg"
     },
@@ -453,7 +576,7 @@ function main(config) {
       ...groupBaseOption,
       "name": "Spotify",
       "type": "select",
-      "proxies": ["节点选择","全局直连"],
+      "proxies": ["节点选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/icon/spotify.svg"
     },
     {
@@ -487,16 +610,14 @@ function main(config) {
     }
   ];
 
-  // 覆盖原配置中的规则
   config["rule-providers"] = ruleProviders;
   config["rules"] = rules;
-  // 地区分组
   addRegions(config);
-  config["proxies"]?.forEach(proxy => {
-    // 为每个节点设置 udp = true
-    proxy.udp = true
 
-  })
-  // 返回修改后的配置
+  // 关键修复：安全设置 udp
+  (config.proxies || []).forEach(proxy => {
+    proxy.udp = true;
+  });
+
   return config;
 }
