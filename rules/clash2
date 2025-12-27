@@ -291,38 +291,34 @@ function addRegions(config) {
           regions.push(region.name)
       }
   } else {
-      let names = config.proxies.map(p => p.name).filter(Boolean);
-      if (names.length === 0) return;
-      for (const region of regionConfig) {
-          let proxies = [], noproxies = [];
-          if (!region.matcher) {
-              proxies = [...names];
-              noproxies = [];
-          } else {
-              const matches = region.matcher.split("|");
-              if (matches.length === 0) continue;
-              const result = names.reduce((acc, name) => {
-                  (matches.some(m => name.includes(m)) ? acc.proxies : acc.noproxies).push(name);
-                  return acc;
-              }, { proxies: [], noproxies: [] });
-              proxies = result.proxies;
-              noproxies = result.noproxies;
-          }
-          if (proxies.length === 0) continue;
-          config["proxy-groups"].push({
-              ...groupBaseOption,
-              name: region.name,
-              type: "url-test",
-              interval: test_interval,
-              tolerance: test_tolerance,
-              proxies: proxies,
-              icon: region.icon,
-          });
-          regions.push(region.name);
-          if (noproxies.length === 0) break;
-          names = noproxies;
-      }
-  }
+       // 订阅里是 proxies（静态节点）→ 直接按地区分类，做手动选择
+    let names = config.proxies.map(p => p.name).filter(Boolean);
+    if (names.length === 0) return;
+
+    for (const region of regionConfig) {
+        let regionNodes = [];
+
+        if (!region.matcher) {
+            // 没有 matcher 的“其他地区”
+            regionNodes = [...names];
+        } else {
+            const parts = region.matcher.split("|");
+            regionNodes = names.filter(name =>
+                parts.some(m => name.includes(m))
+            );
+        }
+
+        if (regionNodes.length === 0) continue;
+
+        config["proxy-groups"].push({
+            ...groupBaseOption,
+            name: region.name,
+            type: "select",           // ★★★ 关键：手动选择
+            proxies: regionNodes,     // ★★★ 关键：直接放节点名
+            icon: region.icon,
+        });
+    }
+}
   if (regions.length === 0) return;
   const entries = config["proxy-groups"];
   for (const entry of entries) {
