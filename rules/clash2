@@ -381,9 +381,11 @@ function addRegions(config) {
 
     if (entry.name === "节点选择") {
       entry.proxies.splice(2, 0, "地区选择");
-    } else if (entry.type === "select" && !entry.["include-all"]) {
-      entry.proxies.push(...regions);
+    } else if (entry.type === "select" && !entry["include-all"]) {
+    if (!regions.includes(entry.name) && entry.name !== "地区选择") {
+        entry.proxies.push(...regions);
     }
+   }
   }
 }
 // 程序入口
