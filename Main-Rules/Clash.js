@@ -50,10 +50,14 @@ const domesticNameservers = [
   "https://223.5.5.5/dns-query", // 阿里DoH
   "https://doh.pub/dns-query" // 腾讯DoH
 ];
-// 国外DNS服务器
+// 国外 DNS 服务器
 const foreignNameservers = [
-  "https://1.1.1.1/dns-query", // CloudflareDNS
-  "https://8.8.8.8/dns-query", // GoogleDNS  
+  "https://208.67.222.222/dns-query", // OpenDNS
+  "https://77.88.8.8/dns-query",      // YandexDNS
+  "https://1.1.1.1/dns-query",      // Cloudflare
+  "https://8.8.8.8/dns-query",      // Google (主)
+  "https://8.8.4.4/dns-query",      // Google (备)
+  "https://9.9.9.9/dns-query"       // Quad9 
 ];
 // DNS配置
 const dnsConfig = {
