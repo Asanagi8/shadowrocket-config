@@ -229,7 +229,7 @@ const ruleProviders = {
   "my-Emby": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/rules/Ruleset/Emby.txt",
+    "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/rules/Ruleset/Emby.list",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"    
   },
 };
