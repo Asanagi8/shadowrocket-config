@@ -274,7 +274,8 @@ const rules = [
 
  // 添加地区分组：支持 proxies & proxy-providers
 function addRegions(config) {
-  let regions = [];
+  let regions = [];  // 用来存储地区名称
+  let usedNodes = []; // 用来存储已使用的节点名称
   let isProviderMode = !config.proxies || config.proxies.length === 0;
 
   // 1. 生成地区分组
@@ -291,11 +292,19 @@ function addRegions(config) {
         if (!provider || !provider.proxies) continue;
         for (const p of provider.proxies) {
           if (!p || !p.name) continue;
+          
           if (!region.matcher) {
-            regionNodes.push(p.name);
+            // 如果没有 matcher，表示是“其他地区”，排除已指定地区的节点
+            if (!usedNodes.includes(p.name)) {  // 用 usedNodes 来排除已使用的节点
+              regionNodes.push(p.name);
+              usedNodes.push(p.name); // 将该节点加入已使用节点列表
+            }    
           } else {
             const parts = region.matcher.split("|");
-            if (parts.some(m => p.name.includes(m))) regionNodes.push(p.name);
+            if (parts.some(m => p.name.includes(m))) {
+              regionNodes.push(p.name);
+              usedNodes.push(p.name); // 将该节点加入已使用节点列表
+            }
           }
         }
       }
@@ -314,11 +323,13 @@ function addRegions(config) {
     const names = config.proxies.map(p => p.name).filter(Boolean);
     for (const region of regionConfig) {
       let regionNodes = [];
+
       if (!region.matcher) {
-        regionNodes = [...names];
+        // 如果没有 matcher，表示“其他”地区，只排除已存在的地区
+        regionNodes = names.filter(name => !regions.includes(name) && !usedNodes.includes(name));
       } else {
         const parts = region.matcher.split("|");
-        regionNodes = names.filter(name => parts.some(m => name.includes(m)));
+        regionNodes = names.filter(name => parts.some(m => name.includes(m)) && !usedNodes.includes(name));
       }
       if (regionNodes.length === 0) continue;
       config["proxy-groups"].push({
@@ -329,6 +340,7 @@ function addRegions(config) {
         icon: region.icon,
       });
       regions.push(region.name);
+      usedNodes.push(...regionNodes); // 将当前地区的节点加入已使用节点列表
     }
   }
 
