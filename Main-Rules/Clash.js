@@ -469,6 +469,13 @@ function main(config) {
     },
     {
       ...groupBaseOption,
+      "name": "Spotify",
+      "type": "select",
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png"
+    },
+    {
+      ...groupBaseOption,
       "name": "微软服务",
       "type": "select",
       "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
@@ -495,13 +502,6 @@ function main(config) {
       "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/bilibili.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Spotify",
-      "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
-      "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png"
     },
     {
       ...groupBaseOption,
