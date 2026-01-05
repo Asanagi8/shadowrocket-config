@@ -254,6 +254,7 @@ const rules = [
   // 1. 拦截类与高优先级
   "RULE-SET,reject,广告过滤",
   // 2. AI 服务
+  "DOMAIN-KEYWORD,gemini,AI",
   "RULE-SET,AI,AI",
   // 3. 社交与流媒体
   "RULE-SET,YouTube,YouTube",
