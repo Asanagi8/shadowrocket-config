@@ -268,8 +268,8 @@ const rules = [
   "RULE-SET,icloud,苹果服务",
   "RULE-SET,apple,苹果服务",
   "RULE-SET,google,谷歌服务",
-  "RULE-SET,Microsoft,微软服务",
   "RULE-SET,MicrosoftEdge,微软服务",
+  "RULE-SET,Microsoft,微软服务",
   // 5. 通用分流（GFW 列表）
   "RULE-SET,proxy,节点选择",
   "RULE-SET,gfw,节点选择",
