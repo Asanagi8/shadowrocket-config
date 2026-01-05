@@ -236,32 +236,47 @@ const ruleProviders = {
     "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.list",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"    
   },
+  "Microsoft": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://fastly.jsdelivr.net/gh/deezertidal/shadowrocket-rules@main/rule/Microsoft.list",
+    "path": "./ruleset/deezertidal/Microsoft.yaml" 
+  },
+  "MicrosoftEdge": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://fastly.jsdelivr.net/gh/deezertidal/shadowrocket-rules@main/rule/MicrosoftEdge.list",
+    "path": "./ruleset/deezertidal/MicrosoftEdge.yaml" 
+  },
 };
 // 规则
 const rules = [
-  "DOMAIN-SUFFIX,googleapis.cn,节点选择",
-  "DOMAIN-SUFFIX,gstatic.com,节点选择",
-  "DOMAIN-SUFFIX,xn--ngstr-lra8j.com,节点选择",
-  "DOMAIN-SUFFIX,github.io,节点选择",
-  "DOMAIN,v2rayse.com,节点选择",
-  "RULE-SET,applications,全局直连",
-  "RULE-SET,private,全局直连",
+  // 1. 拦截类与高优先级
   "RULE-SET,reject,广告过滤",
-  "RULE-SET,icloud,微软服务",
-  "RULE-SET,apple,苹果服务",
+  // 2. AI 服务
+  "RULE-SET,AI,AI",
+  // 3. 社交与流媒体
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,Netflix,Netflix",
   "RULE-SET,Spotify,Spotify",
-  "RULE-SET,BilibiliHMT,哔哩哔哩港澳台",
   "RULE-SET,my-Emby,Emby",
   "RULE-SET,Emby,Emby",
-  "RULE-SET,google,谷歌服务",
-  "RULE-SET,AI,AI",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,X,X",
+  "RULE-SET,BilibiliHMT,哔哩哔哩港澳台",
+  // 4. 专项服务
+  "RULE-SET,icloud,苹果服务",
+  "RULE-SET,apple,苹果服务",
+  "RULE-SET,google,谷歌服务",
+  "RULE-SET,Microsoft,微软服务",
+  "RULE-SET,MicrosoftEdge,微软服务",
+  // 5. 通用分流（GFW 列表）
   "RULE-SET,proxy,节点选择",
   "RULE-SET,gfw,节点选择",
   "RULE-SET,tld-not-cn,节点选择",
+  // 6. 系统与直连
+  "RULE-SET,applications,全局直连",
+  "RULE-SET,private,全局直连",
   "RULE-SET,direct,全局直连",
   "RULE-SET,lancidr,全局直连,no-resolve",
   "RULE-SET,cncidr,全局直连,no-resolve",
@@ -269,6 +284,7 @@ const rules = [
   "GEOSITE,CN,全局直连",
   "GEOIP,LAN,全局直连,no-resolve",
   "GEOIP,CN,全局直连,no-resolve",
+  // 7. 兜底
   "MATCH,漏网之鱼"
 ];
 
