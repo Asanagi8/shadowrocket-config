@@ -160,7 +160,7 @@ const ruleProviders = {
   },
   "lancidr": {
     ...ruleProviderCommon,
-    "behavior": "ipcidr"，
+    "behavior": "ipcidr",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt",
     "path": "./ruleset/loyalsoldier/lancidr.yaml"
   },
