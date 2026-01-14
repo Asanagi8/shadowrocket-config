@@ -195,7 +195,7 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Twitter.yaml"
   },
   "Claude": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml",
     "path": "./ruleset/blackmatrix7/Claude.yaml"    
@@ -288,7 +288,7 @@ const rules = [
 
   // 9. 【最终兜底】（最后的物理地理位置判定）
   "GEOIP,CN,全局直连,no-resolve",           // 只要服务器在中国，强制直连
-  "FINAL,漏网之鱼"                           // 剩下的海外冷门/未知流量
+  "MATCH,漏网之鱼"                           // 剩下的海外冷门/未知流量
 ];
 
  // 添加地区分组：支持 proxies & proxy-providers
