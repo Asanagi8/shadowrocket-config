@@ -117,7 +117,7 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/apple.yaml"
   },
   "google": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml",
     "path": "./ruleset/blackmatrix7/google.yaml"
@@ -169,7 +169,7 @@ const ruleProviders = {
     "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
     "path": "./ruleset/loyalsoldier/applications.yaml"
-  }，
+  },
   "YouTube": {
     ...ruleProviderCommon,
     "behavior": "classical",
