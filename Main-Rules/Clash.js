@@ -106,39 +106,33 @@ const ruleProviderCommon = {
 const ruleProviders = {
   "reject": {
     ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt",
-    "path": "./ruleset/loyalsoldier/reject.yaml"
-  },
-  "icloud": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt",
-    "path": "./ruleset/loyalsoldier/icloud.yaml"
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml",
+    "path": "./ruleset/blackmatrix7/reject.yaml"
   },
   "apple": {
     ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt",
-    "path": "./ruleset/loyalsoldier/apple.yaml"
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml",
+    "path": "./ruleset/blackmatrix7/apple.yaml"
   },
   "google": {
     ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt",
-    "path": "./ruleset/loyalsoldier/google.yaml"
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google.yaml",
+    "path": "./ruleset/blackmatrix7/google.yaml"
   },
   "proxy": {
     ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
-    "path": "./ruleset/loyalsoldier/proxy.yaml"
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml",
+    "path": "./ruleset/blackmatrix7/proxy.yaml"
   },
   "direct": {
     ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt",
-    "path": "./ruleset/loyalsoldier/direct.yaml"
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml",
+    "path": "./ruleset/blackmatrix7/direct.yaml"
   },
   "private": {
     ...ruleProviderCommon,
@@ -183,68 +177,68 @@ const ruleProviders = {
     "path": "./ruleset/loyalsoldier/applications.yaml"
   },
   "YouTube": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
+    ...ruleProviderCommon，
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/YouTube.txt",
     "path": "./ruleset/xiaolin-007/YouTube.yaml"
   },
   "Netflix": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/Netflix.txt",
     "path": "./ruleset/xiaolin-007/Netflix.yaml"
   },
   "Spotify": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
+    ...ruleProviderCommon，
+    "behavior": "classical"，
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/Spotify.txt",
     "path": "./ruleset/xiaolin-007/Spotify.yaml"
   },
   "X": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/Twitter.txt",
     "path": "./ruleset/xiaolin-007/Twitter.yaml"
   },
   "BilibiliHMT": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
+    ...ruleProviderCommon，
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/BilibiliHMT.txt",
     "path": "./ruleset/xiaolin-007/BilibiliHMT.yaml"    
   },
   "AI": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/AI.txt",
     "path": "./ruleset/xiaolin-007/AI.yaml"    
   },
   "TikTok": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/xiaolin-007/clash@main/rule/TikTok.txt",
     "path": "./ruleset/xiaolin-007/TikTok.yaml"    
   },
   "Emby": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Emby/Emby.yaml",
     "path": "./ruleset/blackmatrix7/Emby.yaml"    
   },
   "my-Emby": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.list",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"    
   },
   "Microsoft": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/deezertidal/shadowrocket-rules@main/rule/Microsoft.list",
     "path": "./ruleset/deezertidal/Microsoft.yaml" 
   },
   "MicrosoftEdge": {
     ...ruleProviderCommon,
-    "behavior": "domain",
+    "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/deezertidal/shadowrocket-rules@main/rule/MicrosoftEdge.list",
     "path": "./ruleset/deezertidal/MicrosoftEdge.yaml" 
   },
@@ -259,14 +253,13 @@ const rules = [
   // 3. 社交与流媒体
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,Netflix,Netflix",
-  "RULE-SET,Spotify,Spotify",
+  "RULE-SET,Spotify,Spotify"，
   "RULE-SET,my-Emby,Emby",
   "RULE-SET,Emby,Emby",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,X,X",
   "RULE-SET,BilibiliHMT,哔哩哔哩港澳台",
   // 4. 专项服务
-  "RULE-SET,icloud,苹果服务",
   "RULE-SET,apple,苹果服务",
   "RULE-SET,google,谷歌服务",
   "RULE-SET,MicrosoftEdge,微软服务",
