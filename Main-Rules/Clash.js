@@ -87,9 +87,7 @@ const dnsConfig = {
     // 微信快速登录检测失败
     "localhost.work.weixin.qq.com"
   ],
-  "default-nameserver": [
-    "https://223.5.5.5/dns-query",
-    "https://doh.pub/dns-query"],//可修改成自己ISP的DNS
+  "default-nameserver": ["223.5.5.5","119.29.29.29"],//可修改成自己ISP的DNS
   "nameserver": [...foreignNameservers],
   "proxy-server-nameserver":[...domesticNameservers],
   "direct-nameserver":[...domesticNameservers],
