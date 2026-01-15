@@ -247,7 +247,7 @@ const rules = [
   // 1. 【核心直连】最高优先级 (防止误杀与内网失联)
   "GEOIP,LAN,全局直连,no-resolve",           // 物理层局域网兜底
   "RULE-SET,private,全局直连",               // 局域网域名/常用地址
-  "RULE-SET,direct,全局直连",                // 通用直连白名单
+  "RULE-SET,direct,全局直连"，                // 通用直连白名单
   "RULE-SET,gov-cn,全局直连",                // 政府/教育网
   "RULE-SET,lancidr,全局直连,no-resolve",     // 局域网 IP 段
 
@@ -286,6 +286,7 @@ const rules = [
   "RULE-SET,gfw,节点选择",
 
   // 9. 【最终兜底】（最后的物理地理位置判定）
+  "GEOIP,LAN,全局直连,no-resolve",
   "GEOIP,CN,全局直连,no-resolve",           // 只要服务器在中国，强制直连
   "MATCH,漏网之鱼"                           // 剩下的海外冷门/未知流量
 ];
@@ -351,7 +352,7 @@ function addRegions(config) {
       }
       if (regionNodes.length === 0) continue;
       config["proxy-groups"].push({
-        ...groupBaseOption,
+        ...groupBaseOption，
         name: region.name,
         type: "select",
         proxies: regionNodes,
