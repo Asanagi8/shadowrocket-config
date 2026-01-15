@@ -52,10 +52,8 @@ const domesticNameservers = [
 ];
 // 国外DNS服务器
 const foreignNameservers = [
-  "https://208.67.222.222/dns-query", // OpenDNS
-  "https://77.88.8.8/dns-query", //YandexDNS
   "https://1.1.1.1/dns-query", // CloudflareDNS
-  "https://8.8.4.4/dns-query", // GoogleDNS  
+  "https://8.8.8.8/dns-query", // GoogleDNS  
 ];
 // DNS配置
 const dnsConfig = {
@@ -90,7 +88,6 @@ const dnsConfig = {
   "default-nameserver": ["223.5.5.5","119.29.29.29"],//可修改成自己ISP的DNS
   "nameserver": [...foreignNameservers],
   "proxy-server-nameserver":[...domesticNameservers],
-  "direct-nameserver":[...domesticNameservers],
   "nameserver-policy": {
   "geosite:private,cn": domesticNameservers
   }
@@ -241,6 +238,18 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml",
     "path": "./ruleset/blackmatrix7/Microsoft.yaml" 
   },
+  "cncidr": {
+    ...ruleProviderCommon,
+    "behavior": "ipcidr",
+    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt",
+    "path": "./ruleset/loyalsoldier/cncidr.yaml"
+  },
+  "tld-not-cn": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt",
+    "path": "./ruleset/loyalsoldier/tld-not-cn.yaml"
+  },
 };
 // 规则
 const rules = [
@@ -279,11 +288,13 @@ const rules = [
   "RULE-SET,Microsoft,微软服务",
 
   // 7. 【大陆域名兜底】（在此拦截掉绝大部分国内 App 流量，提升速度）
-  "GEOSITE,CN,全局直连",                     // 国内常用域名大网
+  "GEOSITE,CN,全局直连",                      // 国内常用域名大网
 
   // 8. 【全球加速代理】（GFW 列表名单）
   "RULE-SET,proxy,节点选择",
   "RULE-SET,gfw,节点选择",
+  "RULE-SET,tld-not-cn,节点选择",
+  "RULE-SET,cncidr,全局直连,no-resolve",
 
   // 9. 【最终兜底】（最后的物理地理位置判定）
   "GEOIP,LAN,全局直连,no-resolve",
