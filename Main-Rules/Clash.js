@@ -194,10 +194,10 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Twitter.yaml"
   },
   "Claude": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude.yaml",
-    "path": "./ruleset/blackmatrix7/Claude.yaml"    
+    "path": "./ruleset/blackmatrix7/Claude.yaml"
   },
  "Copilot": {
     ...ruleProviderCommon,
