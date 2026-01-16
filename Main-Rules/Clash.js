@@ -112,17 +112,17 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Domain.yaml",
     "path": "./ruleset/blackmatrix7/reject-domain.yaml"
   },
-  "apple_all": {
+  "apple-all": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml",
-    "path": "./ruleset/blackmatrix7/apple_all.yaml"
+    "path": "./ruleset/blackmatrix7/apple-all.yaml"
   },
-  "apple_domain": {
+  "apple-domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/apple_domain.yaml"
+    "path": "./ruleset/blackmatrix7/apple-domain.yaml"
   },
   "google": {
     ...ruleProviderCommon,
@@ -142,11 +142,11 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.yaml",
     "path": "./ruleset/blackmatrix7/gfw.yaml"
   },
-  "gfw_domain": {
+  "gfw-domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/gfw_domain.yaml"
+    "path": "./ruleset/blackmatrix7/gfw-domain.yaml"
   },
   "direct": {
     ...ruleProviderCommon,
@@ -191,7 +191,7 @@ const ruleProviders = {
     "path": "./ruleset/loyalsoldier/applications.yaml"
   },
   "YouTube": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml",
     "path": "./ruleset/blackmatrix7/YouTube.yaml"
@@ -202,7 +202,7 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml",
     "path": "./ruleset/blackmatrix7/Netflix.yaml"
   },
-    "Netflix-ip": {
+  "Netflix-ip": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_IP.yaml",
@@ -243,13 +243,13 @@ const ruleProviders = {
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml",
     "path": "./ruleset/blackmatrix7/OpenAI.yaml"    
-  }，
+  },
   "TikTok": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml",
     "path": "./ruleset/blackmatrix7/TikTok.yaml"    
-  }，
+  },
   "Emby": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -257,13 +257,13 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Emby.yaml"    
   },
   "my-Emby": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.yaml",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"  
   },
   "Microsoft": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml",
     "path": "./ruleset/blackmatrix7/Microsoft.yaml" 
@@ -273,27 +273,30 @@ const ruleProviders = {
 const rules = [
 
   // 1️⃣ 【绝对安全直连】
-  "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别，安全）
+  "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别,安全）
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,gov-cn,全局直连",          // 政府 / 教育网
   "RULE-SET,ChinaMax,全局直连",
+  "RULE-SET,lancidr,全局直连,no-resolve",
 
-  // 2️⃣ 【广告过滤】（尽量靠前，但在安全直连之后）
-  "RULE-SET,reject,广告过滤",
+  // 2️⃣ 【广告过滤】（尽量靠前,但在安全直连之后）
+  "RULE-SET,reject-all,广告过滤",
+  "RULE-SET,reject-domain,广告过滤",
 
   // 3️⃣ 【系统级应用】（更新 / 下载 / 系统服务）
   "RULE-SET,applications,全局直连",
 
-  // 4️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
-  "RULE-SET,my-Emby,Emby"，
+  // 4️⃣ 【流媒体服务】（精确分流,避免被后面规则吞掉）
+  "RULE-SET,my-Emby,Emby",
   "RULE-SET,Emby,Emby",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,Netflix,Netflix",
+  "RULE-SET,Netflix-ip,Netflix",
   "RULE-SET,YouTube,YouTube",
-  "RULE-SET,Spotify,Spotify"，
+  "RULE-SET,Spotify,Spotify",
 
-  // 5️⃣ 【AI 服务】（独立分组，方便你切节点）
-  "RULE-SET,OpenAI,AI"，
+  // 5️⃣ 【AI 服务】（独立分组,方便你切节点）
+  "RULE-SET,OpenAI,AI",
   "RULE-SET,Claude,AI",
   "RULE-SET,Gemini,AI",
 
@@ -301,12 +304,14 @@ const rules = [
   "RULE-SET,telegram,Telegram",
   "RULE-SET,twitter,X",
   "RULE-SET,google,谷歌服务",
-  "RULE-SET,apple,苹果服务",
+  "RULE-SET,apple-all,苹果服务",
+  "RULE-SET,apple-domain,苹果服务",
   "RULE-SET,Microsoft,微软服务",
 
   // 7️⃣ 【代理规则】
-  "RULE-SET,proxy,节点选择"，
+  "RULE-SET,proxy,节点选择",
   "RULE-SET,gfw,节点选择",
+  "RULE-SET,gfw-domain,节点选择",
 
   // 8️⃣ 【大陆域名兜底】
   "GEOSITE,CN,全局直连",
@@ -338,7 +343,7 @@ function addRegions(config) {
           if (!p || !p.name) continue;
           
           if (!region.matcher) {
-            // 如果没有 matcher，表示是“其他地区”，排除已指定地区的节点
+            // 如果没有 matcher,表示是“其他地区”,排除已指定地区的节点
             if (!usedNodes.includes(p.name)) {  // 用 usedNodes 来排除已使用的节点
               regionNodes.push(p.name);
               usedNodes.push(p.name); // 将该节点加入已使用节点列表
@@ -369,7 +374,7 @@ function addRegions(config) {
       let regionNodes = [];
 
       if (!region.matcher) {
-        // 如果没有 matcher，表示“其他”地区，只排除已存在的地区
+        // 如果没有 matcher,表示“其他”地区,只排除已存在的地区
         regionNodes = names.filter(name => !regions.includes(name) && !usedNodes.includes(name));
       } else {
         const parts = region.matcher.split("|");
@@ -417,7 +422,7 @@ function addRegions(config) {
         "全局拦截", 
         "广告过滤", 
         "手动选择",
-        ...regions // 必须包含这个，防止地区组自包含导致 loop 环路报错
+        ...regions // 必须包含这个,防止地区组自包含导致 loop 环路报错
       ];
 
       if (!skipGroups.includes(entry.name)) {
@@ -485,79 +490,79 @@ function main(config) {
       ...groupBaseOption,
       "name": "Telegram",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"， "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png"
     },
     {
       ...groupBaseOption,
       "name": "AI",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png"
     },
     {
       ...groupBaseOption,
       "name": "TikTok",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok_1.png"
     },
     {
       ...groupBaseOption,
       "name": "X",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png"
     },
     {
       ...groupBaseOption,
       "name": "Emby",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"， "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png"
     },
     {
       ...groupBaseOption,
       "name": "Netflix",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"， "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png"
     },
     {
       ...groupBaseOption,
       "name": "Spotify",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png"
     },
     {
       ...groupBaseOption,
       "name": "微软服务",
-      "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "type": "select"，
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"，"全局直连"]，
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png"
     },
     {
       ...groupBaseOption,
       "name": "苹果服务",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png"
     },
     {
       ...groupBaseOption,
       "name": "谷歌服务",
       "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
+      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png"
     },
     {
       ...groupBaseOption,
-      "name": "广告过滤",
-      "type": "select",
-      "proxies": ["REJECT", "DIRECT"],
+      "name": "广告过滤"，
+      "type": "select"，
+      "proxies": ["REJECT"， "DIRECT"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png"
-    },
+    }，
     {
       ...groupBaseOption,
       "name": "全局直连",
@@ -569,14 +574,14 @@ function main(config) {
       ...groupBaseOption,
       "name": "全局拦截",
       "type": "select",
-      "proxies": ["REJECT", "DIRECT"],
+      "proxies": ["REJECT"， "DIRECT"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png"
     },
     {
       ...groupBaseOption,
       "name": "漏网之鱼",
       "type": "select",
-      "proxies": ["节点选择","全局直连", "地区选择"],
+      "proxies": ["节点选择","全局直连"， "地区选择"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png"
     }
