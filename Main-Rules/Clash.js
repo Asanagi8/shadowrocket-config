@@ -132,15 +132,9 @@ const ruleProviders = {
   },
   "proxy": {
     ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy.yaml",
-    "path": "./ruleset/blackmatrix7/proxy.yaml"
-  },
-  "proxy-domain": {
-    ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/proxy-domain.yaml"
+    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
+    "path": "./ruleset/loyalsoldier/proxy.yaml"
   },
   "gfw": {
     ...ruleProviderCommon,
@@ -316,7 +310,6 @@ const rules = [
 
   // 7️⃣ 【代理规则】
   "RULE-SET,proxy,节点选择",
-  "RULE-SET,proxy-domain,节点选择",
   "RULE-SET,gfw,节点选择",
   "RULE-SET,gfw-domain,节点选择",
 
