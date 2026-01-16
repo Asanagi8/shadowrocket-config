@@ -223,7 +223,7 @@ const ruleProviders = {
   "twitter": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml"，
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml",
     "path": "./ruleset/blackmatrix7/Twitter.yaml"
   },
   "Claude": {
@@ -233,7 +233,7 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Claude.yaml"
   },
  "Copilot": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml",
     "path": "./ruleset/blackmatrix7/Copilot.yaml"    
@@ -311,7 +311,7 @@ const rules = [
   "RULE-SET,twitter,X",
   "RULE-SET,google,谷歌服务",
   "RULE-SET,apple-all,苹果服务",
-  "RULE-SET,apple-domain,苹果服务"，
+  "RULE-SET,apple-domain,苹果服务",
   "RULE-SET,Microsoft,微软服务",
 
   // 7️⃣ 【代理规则】
@@ -497,79 +497,79 @@ function main(config) {
       ...groupBaseOption,
       "name": "Telegram",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"， "全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Telegram.png"
     },
     {
       ...groupBaseOption,
       "name": "AI",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/ChatGPT.png"
     },
     {
       ...groupBaseOption,
       "name": "TikTok",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/TikTok_1.png"
     },
     {
       ...groupBaseOption,
       "name": "X",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Twitter.png"
     },
     {
       ...groupBaseOption,
       "name": "Emby",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"， "全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Emby.png"
     },
     {
       ...groupBaseOption,
       "name": "Netflix",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"， "全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png"
     },
     {
       ...groupBaseOption,
       "name": "Spotify",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png"
     },
     {
       ...groupBaseOption,
       "name": "微软服务",
-      "type": "select"，
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移"，"全局直连"]，
+      "type": "select",
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Microsoft.png"
     },
     {
       ...groupBaseOption,
       "name": "苹果服务",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Apple.png"
     },
     {
       ...groupBaseOption,
       "name": "谷歌服务",
       "type": "select",
-      "proxies": ["节点选择"， "地区选择"， "延迟选优"， "故障转移","全局直连"],
+      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png"
     },
     {
       ...groupBaseOption,
-      "name": "广告过滤"，
-      "type": "select"，
-      "proxies": ["REJECT"， "DIRECT"],
+      "name": "广告过滤",
+      "type": "select",
+      "proxies": ["REJECT", "DIRECT"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png"
-    }，
+    },
     {
       ...groupBaseOption,
       "name": "全局直连",
@@ -581,14 +581,14 @@ function main(config) {
       ...groupBaseOption,
       "name": "全局拦截",
       "type": "select",
-      "proxies": ["REJECT"， "DIRECT"],
+      "proxies": ["REJECT", "DIRECT"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Reject.png"
     },
     {
       ...groupBaseOption,
       "name": "漏网之鱼",
       "type": "select",
-      "proxies": ["节点选择","全局直连"， "地区选择"],
+      "proxies": ["节点选择","全局直连", "地区选择"],
       "filter": "^(?!.*(官网|套餐|流量|异常|剩余)).*$",
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Final.png"
     }
