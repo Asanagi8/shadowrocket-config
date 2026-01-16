@@ -133,8 +133,14 @@ const ruleProviders = {
   "proxy": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ProxyLite/ProxyLite.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy.yaml",
     "path": "./ruleset/blackmatrix7/proxy.yaml"
+  },
+  "proxy-domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Proxy/Proxy_Domain.yaml",
+    "path": "./ruleset/blackmatrix7/proxy-domain.yaml"
   },
   "gfw": {
     ...ruleProviderCommon,
@@ -217,7 +223,7 @@ const ruleProviders = {
   "twitter": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter.yaml"，
     "path": "./ruleset/blackmatrix7/Twitter.yaml"
   },
   "Claude": {
@@ -227,7 +233,7 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Claude.yaml"
   },
  "Copilot": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot.yaml",
     "path": "./ruleset/blackmatrix7/Copilot.yaml"    
@@ -305,11 +311,12 @@ const rules = [
   "RULE-SET,twitter,X",
   "RULE-SET,google,谷歌服务",
   "RULE-SET,apple-all,苹果服务",
-  "RULE-SET,apple-domain,苹果服务",
+  "RULE-SET,apple-domain,苹果服务"，
   "RULE-SET,Microsoft,微软服务",
 
   // 7️⃣ 【代理规则】
   "RULE-SET,proxy,节点选择",
+  "RULE-SET,proxy-domain,节点选择",
   "RULE-SET,gfw,节点选择",
   "RULE-SET,gfw-domain,节点选择",
 
