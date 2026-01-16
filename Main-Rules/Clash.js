@@ -100,17 +100,29 @@ const ruleProviderCommon = {
 };
 // 规则集配置
 const ruleProviders = {
-  "reject": {
+  "reject-all": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Classical.yaml",
-    "path": "./ruleset/blackmatrix7/reject.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising.yaml",
+    "path": "./ruleset/blackmatrix7/reject-all.yaml"
   },
-  "apple": {
+  "reject-domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Domain.yaml",
+    "path": "./ruleset/blackmatrix7/reject-domain.yaml"
+  },
+  "apple_all": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Classical.yaml",
-    "path": "./ruleset/blackmatrix7/apple.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple.yaml",
+    "path": "./ruleset/blackmatrix7/apple_all.yaml"
+  },
+  "apple_domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Domain.yaml",
+    "path": "./ruleset/blackmatrix7/apple_domain.yaml"
   },
   "google": {
     ...ruleProviderCommon,
@@ -127,14 +139,26 @@ const ruleProviders = {
   "gfw": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Classical.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global.yaml",
     "path": "./ruleset/blackmatrix7/gfw.yaml"
+  },
+  "gfw_domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Global/Global_Domain.yaml",
+    "path": "./ruleset/blackmatrix7/gfw_domain.yaml"
   },
   "direct": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct.yaml",
     "path": "./ruleset/blackmatrix7/direct.yaml"
+  },
+  "ChinaMax": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax.yaml",
+    "path": "./ruleset/blackmatrix7/ChinaMax.yaml"
   },
   "gov-cn": {
     ...ruleProviderCommon,
@@ -167,7 +191,7 @@ const ruleProviders = {
     "path": "./ruleset/loyalsoldier/applications.yaml"
   },
   "YouTube": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube.yaml",
     "path": "./ruleset/blackmatrix7/YouTube.yaml"
@@ -177,6 +201,12 @@ const ruleProviders = {
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical.yaml",
     "path": "./ruleset/blackmatrix7/Netflix.yaml"
+  },
+    "Netflix-ip": {
+    ...ruleProviderCommon,
+    "behavior": "ipcidr",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_IP.yaml",
+    "path": "./ruleset/blackmatrix7/Netflix-ip.yaml"
   },
   "Spotify": {
     ...ruleProviderCommon,
@@ -213,13 +243,13 @@ const ruleProviders = {
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI.yaml",
     "path": "./ruleset/blackmatrix7/OpenAI.yaml"    
-  },
+  }，
   "TikTok": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok.yaml",
     "path": "./ruleset/blackmatrix7/TikTok.yaml"    
-  },
+  }，
   "Emby": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -227,79 +257,63 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Emby.yaml"    
   },
   "my-Emby": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.yaml",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"  
   },
   "Microsoft": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft.yaml",
     "path": "./ruleset/blackmatrix7/Microsoft.yaml" 
   },
-  "cncidr": {
-    ...ruleProviderCommon,
-    "behavior": "ipcidr",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt",
-    "path": "./ruleset/loyalsoldier/cncidr.yaml"
-  },
-  "tld-not-cn": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt",
-    "path": "./ruleset/loyalsoldier/tld-not-cn.yaml"
-  },
 };
 // 规则
 const rules = [
-  // 1. 【核心直连】最高优先级 (防止误杀与内网失联)
-  "GEOIP,LAN,全局直连,no-resolve",           // 物理层局域网兜底
-  "RULE-SET,private,全局直连",               // 局域网域名/常用地址
-  "RULE-SET,direct,全局直连",                // 通用直连白名单
-  "RULE-SET,gov-cn,全局直连",                // 政府/教育网
-  "RULE-SET,lancidr,全局直连,no-resolve",     // 局域网 IP 段
 
-  // 2. 【广告过滤】（放在核心直连后，防止拦截了必要的系统请求）
+  // 1️⃣ 【绝对安全直连】
+  "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别，安全）
+  "RULE-SET,direct,全局直连",           // 通用直连白名单
+  "RULE-SET,gov-cn,全局直连",          // 政府 / 教育网
+  "RULE-SET,ChinaMax,全局直连",
+
+  // 2️⃣ 【广告过滤】（尽量靠前，但在安全直连之后）
   "RULE-SET,reject,广告过滤",
 
-  // 3. 【系统级应用】（确保系统更新、下载、P2P 不走代理）
+  // 3️⃣ 【系统级应用】（更新 / 下载 / 系统服务）
   "RULE-SET,applications,全局直连",
 
-  // 4. 【流媒体服务】（精准拦截，防止被下方的通用代理规则抢走流量）
-  "RULE-SET,my-Emby,Emby",                  // 你的私有 Emby 优先级最高
-  "RULE-SET,Emby,Emby",                     // 公益 Emby
+  // 4️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
+  "RULE-SET,my-Emby,Emby"，
+  "RULE-SET,Emby,Emby",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,Netflix,Netflix",
   "RULE-SET,YouTube,YouTube",
-  "RULE-SET,Spotify,Spotify",
+  "RULE-SET,Spotify,Spotify"，
 
-  // 5. 【AI 服务】（独立分组，方便针对不同 AI 切换节点）
-  "RULE-SET,OpenAI,AI",
+  // 5️⃣ 【AI 服务】（独立分组，方便你切节点）
+  "RULE-SET,OpenAI,AI"，
   "RULE-SET,Claude,AI",
   "RULE-SET,Gemini,AI",
-  "RULE-SET,Copilot,AI",
 
-  // 6. 【社交与服务】（常用大厂分流）
+  // 6️⃣ 【社交 / 服务】
   "RULE-SET,telegram,Telegram",
   "RULE-SET,twitter,X",
   "RULE-SET,google,谷歌服务",
   "RULE-SET,apple,苹果服务",
   "RULE-SET,Microsoft,微软服务",
 
-  // 7. 【大陆域名兜底】（在此拦截掉绝大部分国内 App 流量，提升速度）
-  "GEOSITE,CN,全局直连",                      // 国内常用域名大网
-
-  // 8. 【全球加速代理】（GFW 列表名单）
-  "RULE-SET,proxy,节点选择",
+  // 7️⃣ 【代理规则】
+  "RULE-SET,proxy,节点选择"，
   "RULE-SET,gfw,节点选择",
-  "RULE-SET,tld-not-cn,节点选择",
-  "RULE-SET,cncidr,全局直连,no-resolve",
 
-  // 9. 【最终兜底】（最后的物理地理位置判定）
-  "GEOIP,LAN,全局直连,no-resolve",
-  "GEOIP,CN,全局直连,no-resolve",           // 只要服务器在中国，强制直连
-  "MATCH,漏网之鱼"                           // 剩下的海外冷门/未知流量
+  // 8️⃣ 【大陆域名兜底】
+  "GEOSITE,CN,全局直连",
+
+  // 9️⃣ 【最终兜底】（只作为“已知地理位置”的兜底）
+  "GEOIP,CN,全局直连,no-resolve",
+  "MATCH,漏网之鱼"
 ];
 
  // 添加地区分组：支持 proxies & proxy-providers
