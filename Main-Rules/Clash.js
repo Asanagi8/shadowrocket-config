@@ -157,20 +157,8 @@ const ruleProviders = {
   "ChinaMax": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_No_Resolve.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/ChinaMax.yaml"
-  },
-  "ChinaMax_Domain": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/ChinaMax_Domain.yaml"
-  },
-  "ChinaMax_IP": {
-    ...ruleProviderCommon,
-    "behavior": "ipcidr",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_IP.yaml",
-    "path": "./ruleset/blackmatrix7/ChinaMax_IP.yaml"
   },
   "gov-cn": {
     ...ruleProviderCommon,
@@ -211,14 +199,8 @@ const ruleProviders = {
   "Netflix": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_No_Resolve.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_Classical_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/Netflix.yaml"
-  },
-  "Netflix-ip": {
-    ...ruleProviderCommon,
-    "behavior": "ipcidr",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Netflix/Netflix_IP.yaml",
-    "path": "./ruleset/blackmatrix7/Netflix-ip.yaml"
   },
   "Spotify": {
     ...ruleProviderCommon,
@@ -289,8 +271,6 @@ const rules = [
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,gov-cn,全局直连",          // 政府 / 教育网
   "RULE-SET,ChinaMax,全局直连",
-  "RULE-SET,ChinaMax_Domain,全局直连",
-  "RULE-SET,ChinaMax_IP,全局直连",
   "RULE-SET,lancidr,全局直连,no-resolve",
 
   // 2️⃣ 【广告过滤】（尽量靠前,但在安全直连之后）
@@ -305,7 +285,6 @@ const rules = [
   "RULE-SET,Emby,Emby",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,Netflix,Netflix",
-  "RULE-SET,Netflix-ip,Netflix",
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,Spotify,Spotify",
 
@@ -313,6 +292,7 @@ const rules = [
   "RULE-SET,OpenAI,AI",
   "RULE-SET,Claude,AI",
   "RULE-SET,Gemini,AI",
+  "RULE-SET,Copilot,AI",
 
   // 6️⃣ 【社交 / 服务】
   "RULE-SET,telegram,Telegram",
