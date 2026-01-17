@@ -168,7 +168,7 @@ const ruleProviders = {
   },
   "private": {
     ...ruleProviderCommon,
-    "behavior": "classical",
+    "behavior": "domain",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
     "path": "./ruleset/loyalsoldier/private.yaml"
   },
