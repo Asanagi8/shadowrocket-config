@@ -277,7 +277,7 @@ const rules = [
 
   // 3️⃣ 【广告过滤】（尽量靠前，但在直连之后）
   "RULE-SET,reject,广告过滤",
-  "RULE-SET,reject-domain,广告过滤"
+  "RULE-SET,reject-domain,广告过滤",
 
   // 4️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
   "RULE-SET,my-Emby,Emby",
