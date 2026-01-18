@@ -139,14 +139,8 @@ const ruleProviders = {
   "ChinaMaxNoIP": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_No_Resolve.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Classical_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/ChinaMaxNoIP.yaml"
-  },
-  "ChinaMaxNoIP-Domain": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/ChinaMaxNoIP-Domain.yaml"
   },
   "gov-cn": {
     ...ruleProviderCommon,
@@ -277,7 +271,6 @@ const rules = [
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,gov-cn,全局直连",          // 政府 / 教育网
   "RULE-SET,ChinaMaxNoIP,全局直连",
-  "RULE-SET,ChinaMaxNoIP-Domain,全局直连",
   "RULE-SET,lancidr,全局直连,no-resolve",
 
   // 2️⃣ 【广告过滤】（尽量靠前，但在直连之后）
