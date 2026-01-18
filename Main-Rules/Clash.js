@@ -142,7 +142,7 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Classical_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/ChinaMaxNoIP.yaml"
   },
-  "gov-cn": {
+  "Gov-cn": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GovCN/GovCN_No_Resolve.yaml",
@@ -166,23 +166,23 @@ const ruleProviders = {
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
     "path": "./ruleset/loyalsoldier/private.yaml"
   },
-  "apple": {
+  "Apple": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/apple-all.yaml"
+    "path": "./ruleset/blackmatrix7/Apple-all.yaml"
   },
-  "apple-domain": {
+  "Apple-domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/apple-domain.yaml"
+    "path": "./ruleset/blackmatrix7/Apple-domain.yaml"
   },
-  "google": {
+  "Google": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/google.yaml"
+    "path": "./ruleset/blackmatrix7/Google.yaml"
   },
   "Microsoft": {
     ...ruleProviderCommon,
@@ -214,13 +214,13 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/OpenAI.yaml"    
   },
-  "telegram": {
+  "Telegram": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/telegram.yaml"
+    "path": "./ruleset/blackmatrix7/Telegram.yaml"
   },
-  "twitter": {
+  "Twitter": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter_No_Resolve.yaml",
@@ -269,7 +269,7 @@ const rules = [
   // 1️⃣ 【直连】
   "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别，安全）
   "RULE-SET,direct,全局直连",           // 通用直连白名单
-  "RULE-SET,gov-cn,全局直连",          // 政府 / 教育网
+  "RULE-SET,Gov-cn,全局直连",          // 政府 / 教育网
   "RULE-SET,ChinaMaxNoIP,全局直连",
   "RULE-SET,lancidr,全局直连,no-resolve",
 
@@ -295,11 +295,11 @@ const rules = [
   "RULE-SET,Copilot,AI",
 
   // 6️⃣ 【社交 / 服务】
-  "RULE-SET,telegram,Telegram",
-  "RULE-SET,twitter,X",
-  "RULE-SET,google,谷歌服务",
-  "RULE-SET,apple,苹果服务",
-  "RULE-SET,apple-domain,苹果服务",
+  "RULE-SET,Telegram,Telegram",
+  "RULE-SET,Twitter,X",
+  "RULE-SET,Google,谷歌服务",
+  "RULE-SET,Apple,苹果服务",
+  "RULE-SET,Apple-domain,苹果服务",
   "RULE-SET,Microsoft,微软服务",
 
   // 7️⃣ 【代理规则】
