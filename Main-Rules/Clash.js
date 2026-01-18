@@ -100,7 +100,7 @@ const ruleProviderCommon = {
 };
 // 规则集配置
 const ruleProviders = {
-  "reject-all": {
+  "reject": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_No_Resolve.yaml",
@@ -112,7 +112,7 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Domain.yaml",
     "path": "./ruleset/blackmatrix7/reject-domain.yaml"
   },
-  "apple-all": {
+  "apple": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml",
@@ -274,7 +274,7 @@ const rules = [
   "RULE-SET,lancidr,全局直连,no-resolve",
 
   // 2️⃣ 【广告过滤】（尽量靠前,但在安全直连之后）
-  "RULE-SET,reject-all,广告过滤",
+  "RULE-SET,reject,广告过滤",
   "RULE-SET,reject-domain,广告过滤",
 
   // 3️⃣ 【系统级应用】（更新 / 下载 / 系统服务）
@@ -298,7 +298,7 @@ const rules = [
   "RULE-SET,telegram,Telegram",
   "RULE-SET,twitter,X",
   "RULE-SET,google,谷歌服务",
-  "RULE-SET,apple-all,苹果服务",
+  "RULE-SET,apple,苹果服务",
   "RULE-SET,apple-domain,苹果服务",
   "RULE-SET,Microsoft,微软服务",
 
