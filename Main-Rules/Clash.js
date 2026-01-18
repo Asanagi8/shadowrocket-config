@@ -112,24 +112,6 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Advertising/Advertising_Domain.yaml",
     "path": "./ruleset/blackmatrix7/reject-domain.yaml"
   },
-  "apple": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/apple-all.yaml"
-  },
-  "apple-domain": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Domain.yaml",
-    "path": "./ruleset/blackmatrix7/apple-domain.yaml"
-  },
-  "google": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/google.yaml"
-  },
   "proxy": {
     ...ruleProviderCommon,
     "behavior": "domain",
@@ -154,29 +136,23 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/direct.yaml"
   },
-  "ChinaMax": {
+  "ChinaMaxNoIP": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/ChinaMax.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/ChinaMaxNoIP.yaml"
+  },
+  "ChinaMaxNoIP-Domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Domain.yaml",
+    "path": "./ruleset/blackmatrix7/ChinaMaxNoIP-Domain.yaml"
   },
   "gov-cn": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GovCN/GovCN_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/gov-cn.yaml"
-  },
-  "private": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
-    "path": "./ruleset/loyalsoldier/private.yaml"
-  },
-  "telegram": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/telegram.yaml"
   },
   "lancidr": {
     ...ruleProviderCommon,
@@ -190,11 +166,83 @@ const ruleProviders = {
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt",
     "path": "./ruleset/loyalsoldier/applications.yaml"
   },
+  "private": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
+    "path": "./ruleset/loyalsoldier/private.yaml"
+  },
+  "apple": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/apple-all.yaml"
+  },
+  "apple-domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_Domain.yaml",
+    "path": "./ruleset/blackmatrix7/apple-domain.yaml"
+  },
+  "google": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Google/Google_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/google.yaml"
+  },
+  "Microsoft": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/Microsoft.yaml" 
+  },
+  "Claude": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/Claude.yaml"
+  },
+  "Copilot": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/Copilot.yaml"    
+  },
+ "Gemini": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/Gemini.yaml"    
+  },
+  "OpenAI": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/OpenAI.yaml"    
+  },
+  "telegram": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Telegram/Telegram_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/telegram.yaml"
+  },
+  "twitter": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/Twitter.yaml"
+  },
   "YouTube": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/YouTube/YouTube_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/YouTube.yaml"
+  },
+  "TikTok": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/TikTok.yaml"    
   },
   "Netflix": {
     ...ruleProviderCommon,
@@ -208,42 +256,6 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Spotify/Spotify_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/Spotify.yaml"
   },
-  "twitter": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/Twitter.yaml"
-  },
-  "Claude": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Claude/Claude_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/Claude.yaml"
-  },
- "Copilot": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Copilot/Copilot_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/Copilot.yaml"    
-  },
-"Gemini": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Gemini/Gemini_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/Gemini.yaml"    
-  },
-"OpenAI": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/OpenAI.yaml"    
-  },
-  "TikTok": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/TikTok/TikTok_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/TikTok.yaml"    
-  },
   "Emby": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -255,32 +267,27 @@ const ruleProviders = {
     "behavior": "classical",
     "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.yaml",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"  
-  },
-  "Microsoft": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Microsoft/Microsoft_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/Microsoft.yaml" 
-  },
+  }, 
 };
 // 规则
 const rules = [
 
-  // 1️⃣ 【绝对安全直连】
-  "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别,安全）
+  // 1️⃣ 【直连】
+  "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别，安全）
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,gov-cn,全局直连",          // 政府 / 教育网
-  "RULE-SET,ChinaMax,全局直连",
+  "RULE-SET,ChinaMaxNoIP,全局直连",
+  "RULE-SET,ChinaMaxNoIP-Domain,全局直连",
   "RULE-SET,lancidr,全局直连,no-resolve",
 
-  // 2️⃣ 【广告过滤】（尽量靠前,但在安全直连之后）
+  // 2️⃣ 【广告过滤】（尽量靠前，但在直连之后）
   "RULE-SET,reject,广告过滤",
   "RULE-SET,reject-domain,广告过滤",
 
   // 3️⃣ 【系统级应用】（更新 / 下载 / 系统服务）
   "RULE-SET,applications,全局直连",
 
-  // 4️⃣ 【流媒体服务】（精确分流,避免被后面规则吞掉）
+  // 4️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
   "RULE-SET,my-Emby,Emby",
   "RULE-SET,Emby,Emby",
   "RULE-SET,TikTok,TikTok",
@@ -288,7 +295,7 @@ const rules = [
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,Spotify,Spotify",
 
-  // 5️⃣ 【AI 服务】（独立分组,方便你切节点）
+  // 5️⃣ 【AI 服务】（独立分组，方便切换节点）
   "RULE-SET,OpenAI,AI",
   "RULE-SET,Claude,AI",
   "RULE-SET,Gemini,AI",
@@ -337,7 +344,7 @@ function addRegions(config) {
           if (!p || !p.name) continue;
           
           if (!region.matcher) {
-            // 如果没有 matcher,表示是“其他地区”,排除已指定地区的节点
+            // 如果没有 matcher,表示是“其他地区”，排除已指定地区的节点
             if (!usedNodes.includes(p.name)) {  // 用 usedNodes 来排除已使用的节点
               regionNodes.push(p.name);
               usedNodes.push(p.name); // 将该节点加入已使用节点列表
@@ -368,7 +375,7 @@ function addRegions(config) {
       let regionNodes = [];
 
       if (!region.matcher) {
-        // 如果没有 matcher,表示“其他”地区,只排除已存在的地区
+        // 如果没有 matcher,表示“其他”地区，只排除已存在的地区
         regionNodes = names.filter(name => !regions.includes(name) && !usedNodes.includes(name));
       } else {
         const parts = region.matcher.split("|");
@@ -416,7 +423,7 @@ function addRegions(config) {
         "全局拦截", 
         "广告过滤", 
         "手动选择",
-        ...regions // 必须包含这个,防止地区组自包含导致 loop 环路报错
+        ...regions // 必须包含这个，防止地区组自包含导致 loop 环路报错
       ];
 
       if (!skipGroups.includes(entry.name)) {
