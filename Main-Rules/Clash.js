@@ -136,11 +136,11 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Direct/Direct_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/direct.yaml"
   },
-  "ChinaMaxNoIP": {
+  "ChinaMax": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMaxNoIP/ChinaMaxNoIP_Classical_No_Resolve.yaml",
-    "path": "./ruleset/blackmatrix7/ChinaMaxNoIP.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Classical_No_Resolve.yaml",
+    "path": "./ruleset/blackmatrix7/ChinaMax.yaml"
   },
   "Gov-cn": {
     ...ruleProviderCommon,
@@ -266,19 +266,18 @@ const ruleProviders = {
 // 规则
 const rules = [
 
-  // 1️⃣ 【直连】
+  // 1️⃣ 【系统级应用】（更新 / 下载 / 系统服务）
+  "RULE-SET,applications,全局直连",
+  
+  // 2️⃣ 【直连】
   "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别，安全）
+  "RULE-SET,lancidr,全局直连,no-resolve",          // 局域网（避免局域网被direct覆盖）
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,Gov-cn,全局直连",          // 政府 / 教育网
-  "RULE-SET,ChinaMaxNoIP,全局直连",
-  "RULE-SET,lancidr,全局直连,no-resolve",
 
-  // 2️⃣ 【广告过滤】（尽量靠前，但在直连之后）
+  // 3️⃣ 【广告过滤】（尽量靠前，但在直连之后）
   "RULE-SET,reject,广告过滤",
-  "RULE-SET,reject-domain,广告过滤",
-
-  // 3️⃣ 【系统级应用】（更新 / 下载 / 系统服务）
-  "RULE-SET,applications,全局直连",
+  "RULE-SET,reject-domain,广告过滤"
 
   // 4️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
   "RULE-SET,my-Emby,Emby",
@@ -307,7 +306,8 @@ const rules = [
   "RULE-SET,gfw,节点选择",
   "RULE-SET,gfw-domain,节点选择",
 
-  // 8️⃣ 【大陆域名兜底】
+  // 8️⃣ 【大陆兜底】
+  "RULE-SET,ChinaMax,全局直连",
   "GEOSITE,CN,全局直连",
 
   // 9️⃣ 【最终兜底】（只作为“已知地理位置”的兜底）
