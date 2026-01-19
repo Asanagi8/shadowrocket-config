@@ -117,7 +117,7 @@ const ruleProviders = {
     "behavior": "domain",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
     "path": "./ruleset/loyalsoldier/proxy.yaml"
-  },
+  }，
   "gfw": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -148,11 +148,11 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GovCN/GovCN_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/gov-cn.yaml"
   },
-  "lancidr": {
+  "Lan": {
     ...ruleProviderCommon,
-    "behavior": "ipcidr",
-    "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt",
-    "path": "./ruleset/loyalsoldier/lancidr.yaml"
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml",
+    "path": "./ruleset/blackmatrix7/Lan.yaml"
   },
   "applications": {
     ...ruleProviderCommon,
@@ -165,9 +165,9 @@ const ruleProviders = {
     "behavior": "domain",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
     "path": "./ruleset/loyalsoldier/private.yaml"
-  },
+  }，
   "Apple": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/Apple-all.yaml"
@@ -221,7 +221,7 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Telegram.yaml"
   },
   "Twitter": {
-    ...ruleProviderCommon,
+    ...ruleProviderCommon，
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/Twitter.yaml"
@@ -275,23 +275,23 @@ const rules = [
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,Gov-cn,全局直连",          // 政府 / 教育网
 
-  // 3️⃣ 【广告过滤】（尽量靠前，但在直连之后）
+  // 3️⃣ 【AI 服务】（独立分组，方便切换节点）
+  "RULE-SET,OpenAI,AI",
+  "RULE-SET,Claude,AI",
+  "RULE-SET,Gemini,AI",
+  "RULE-SET,Copilot,AI",
+  
+  // 4️⃣ 【广告过滤】（尽量靠前，但在直连之后）
   "RULE-SET,reject,广告过滤",
   "RULE-SET,reject-domain,广告过滤",
 
-  // 4️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
+  // 5️⃣ 【流媒体服务】（精确分流，避免被后面规则吞掉）
   "RULE-SET,my-Emby,Emby",
   "RULE-SET,Emby,Emby",
   "RULE-SET,TikTok,TikTok",
   "RULE-SET,Netflix,Netflix",
   "RULE-SET,YouTube,YouTube",
   "RULE-SET,Spotify,Spotify",
-
-  // 5️⃣ 【AI 服务】（独立分组，方便切换节点）
-  "RULE-SET,OpenAI,AI",
-  "RULE-SET,Claude,AI",
-  "RULE-SET,Gemini,AI",
-  "RULE-SET,Copilot,AI",
 
   // 6️⃣ 【社交 / 服务】
   "RULE-SET,Telegram,Telegram",
