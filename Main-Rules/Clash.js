@@ -117,7 +117,7 @@ const ruleProviders = {
     "behavior": "domain",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt",
     "path": "./ruleset/loyalsoldier/proxy.yaml"
-  }，
+  },
   "gfw": {
     ...ruleProviderCommon,
     "behavior": "classical",
@@ -165,9 +165,9 @@ const ruleProviders = {
     "behavior": "domain",
     "url": "https://fastly.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt",
     "path": "./ruleset/loyalsoldier/private.yaml"
-  }，
+  },
   "Apple": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Apple/Apple_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/Apple-all.yaml"
@@ -221,7 +221,7 @@ const ruleProviders = {
     "path": "./ruleset/blackmatrix7/Telegram.yaml"
   },
   "Twitter": {
-    ...ruleProviderCommon，
+    ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Twitter/Twitter_No_Resolve.yaml",
     "path": "./ruleset/blackmatrix7/Twitter.yaml"
@@ -271,7 +271,7 @@ const rules = [
   
   // 2️⃣ 【直连】
   "RULE-SET,private,全局直连",          // 本地/私有域名（hostname 级别，安全）
-  "RULE-SET,lancidr,全局直连,no-resolve",          // 局域网（避免局域网被direct覆盖）
+  "RULE-SET,Lan,全局直连,no-resolve",          // 局域网（避免局域网被direct覆盖）
   "RULE-SET,direct,全局直连",           // 通用直连白名单
   "RULE-SET,Gov-cn,全局直连",          // 政府 / 教育网
 
