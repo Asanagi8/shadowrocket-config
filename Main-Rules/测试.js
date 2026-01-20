@@ -46,92 +46,6 @@ const regionConfig = [
   }
 ];
 
-
-// DNS配置
-const dnsConfig = {
-  "enable": true,
-  "listen": "0.0.0.0:53",
-  "ipv6": false,
-  "prefer-h3": false,
-  "respect-rules": true,
-  "use-hosts": true,
-  "use-system-hosts": true,
-  "skip-cert-verify": false,
-  "respect-rules": true,
-  "cache-algorithm": "arc",
-  "enhanced-mode": "redir-host",
-  "fake-ip-range": "198.18.0.1/16",
-  "fake-ip-filter-mode": "blacklist",
-  "fake-ip-filter": [ '+.*' ],
-  
-  "proxy-server-nameserver":[ "system" ],
-  "default-nameserver": [ "system" ],
-  "direct-nameserver ": [
-    "https://dns.alidns.com/dns-query",
-    "https://dns.google/dns-query"
-  ],
-  "nameserver": [
-    "https://cloudflare-dns.com/dns-query",
-    "https://dns.google/dns-query"
-  ],
-     // DNS分流
-    "nameserver-policy": {
-      
-     // DNS服务器
-    "RULE-SET:GlobalDNS_Domain": [ 'system' ],
-    "RULE-SET:ChinaDNS_Domain": [ 'system' ],
-      
-    // 国内
-    "RULE-SET:GeositeCN_Domain": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
-    "GEOSITE:cloudflare-cn": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
-    "RULE-SET:CloudflareCN_Do_Resolve": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
-
-     // AI
-     "GEOSITE:openai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "RULE-SET:OpenAI_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "GEOSITE:google-gemini": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "RULE-SET:Gemini_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "GEOSITE:anthropic": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "RULE-SET:Claude_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "RULE-SET:Copilot_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "GEOSITE:xai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     "RULE-SET:Grok_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-     
-     // 社交
-     "GEOSITE:twitter": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
-     "RULE-SET:Twitter_Do_Resolve": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
-     "GEOSITE:telegram": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
-     "RULE-SET:Telegram_Do_Resolve": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
- 
-     // 流媒体
-     "GEOSITE:youtube": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
-     "RULE-SET:YouTube_Do_Resolve": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
-     "GEOSITE:tiktok": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
-     "RULE-SET:TikTok_Do_Resolve": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
-      
-     // 工具
-     "GEOSITE:bing": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-     "RULE-SET:Bing_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-
-     // 服务
-     "GEOSITE:google": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
-     "RULE-SET:Google_Do_Resolve": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
-     "RULE-SET:Apple_Domain": ["https://dns.alidns.com/dns-query#苹果服务", "https://doh.pub/dns-query#苹果服务"],
-     "RULE-SET:MicrosoftAPPs_Domain": ["https://dns.alidns.com/dns-query#微软服务", "https://doh.pub/dns-query#微软服务"],
-      
-     // 海外CDN
-     "GEOSITE:cloudflare": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-     "RULE-SET:Cloudflare_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-     "GEOSITE:akamai": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-     "RULE-SET:AkamaiCloud_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-     "GEOSITE:fastly": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-
-     // 兜底
-     "+.*": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-
-  }
-};
-
 // 规则集通用配置
 const ruleProviderCommon = {
   "type": "http",
@@ -417,7 +331,7 @@ const rules = [
   
 ];
 
- // 添加地区分组：支持 proxies & proxy-providers
+// 添加地区分组：支持 proxies & proxy-providers
 function addRegions(config) {
   let regions = [];  // 用来存储地区名称
   let usedNodes = []; // 用来存储已使用的节点名称
@@ -527,72 +441,162 @@ function addRegions(config) {
   }
 }
 
-
-
 // 程序入口
 function main(config) {
   const proxyCount = config?.proxies?.length ?? 0;
   const proxyProviderCount =
     typeof config?.["proxy-providers"] === "object" ? Object.keys(config["proxy-providers"]).length : 0;
   if (proxyCount === 0 && proxyProviderCount === 0) {
-    throw new 错误("配置文件中未找到任何代理");
+    throw new Error("配置文件中未找到任何代理");
   }
 
-  // 记住选择 & 嗅探
+  // 记住选择
   config["profile"] = {
     "tracing": true,
     "store-selected": true,
     "store-fake-ip": true
   };
-
+  
+  // 嗅探
   config["sniffer"] = {
     "enable": true,
     "sniff": {
-      "HTTP": { 
-        "ports": [80, "8080-8880"], 
-          "override-destination": true 
-      },
-      "TLS": { 
-        "ports": [443, 8443], 
+      "HTTP": {
+        "ports": [80, "8080-8880"],
         "override-destination": true
       },
-      "QUIC": { 
-        "ports": [443, 8443], 
+      "TLS": {
+        "ports": [443, 8443],
+        "override-destination": true
+      },
+      "QUIC": {
+        "ports": [443, 8443],
         "override-destination": true
       }
     },
     "force-domain": ["+.v2ex.com"],
     "skip-domain": [
-      "Mijia Cloud", 
-      "dlg.io.mi.com", 
-      "+.apple.com", 
-      "+.icloud.com", 
-      "+.wechat.com", 
-      "+.qpic.cn", 
-      "+.qq.com", 
-      "+.wechatapp.com", 
-      "+.vivox.com", 
-      "+.oray.com", 
+      "Mijia Cloud",
+      "dlg.io.mi.com",
+      "+.apple.com",
+      "+.icloud.com",
+      "+.wechat.com",
+      "+.qpic.cn",
+      "+.qq.com",
+      "+.wechatapp.com",
+      "+.vivox.com",
+      "+.oray.com",
       "+.sunlogin.net"
     ]
   };
 
- // 配置 TUN 规则
+  // 配置 TUN
   config["tun"] = {
     "enable": true,
     "auto-detect-interface": true,
     "auto-route": true,
-    "stack": system,
+    "stack": "system",
     "dns-hijack": ["any:53"],
     "inet6-route-address": ["2000::/3"],
-  }
+    "strict-route": true
+  };
+
+  // Clash：全局生效 hosts
+  config["hosts"] = { "+.clash.dev": "127.0.0.1" };
   
- // Clash：全局生效 
-  config["hosts"] = {
-    "+.clash.dev": "127.0.0.1"
-  }
+  // DNS配置
+  const dnsConfig = {
+    "enable": true,
+    "listen": "127.0.0.1:53", // 监听本机，避免暴露给局域网（如果确需要局域网使用，改为 0.0.0.0 并在防火墙限制）
+    "ipv6": false,
+    "prefer-h3": false,
+    "use-hosts": true,
+    "use-system-hosts": true,
+    "skip-cert-verify": false,
+    "respect-rules": true,
+    "cache-algorithm": "arc",
+    "enhanced-mode": "redir-host",
+    "fake-ip-range": "198.18.0.1/16",
+    "fake-ip-filter-mode": "blacklist",
+    "fake-ip-filter": ["+.*"],
+  
+    // 仅用于代理节点的域名解析
+    "proxy-server-nameserver":["system"],
+  
+    // 仅用于DNS服务器的域名解析，方便本地解析国内特殊域
+    "default-nameserver": ["system"],
+  
+    // 仅用于直连请求的域名解析
+    "direct-nameserver": [
+      "https://dns.alidns.com/dns-query",
+      "https://dns.google/dns-query"
+    ],
+  
+    // 海外加密上游，可根据你偏好替换为你自己的 DoH 列表
+    "nameserver": [
+      "https://cloudflare-dns.com/dns-query",
+      "https://dns.google/dns-query"
+    ],
+  
+       // DNS分流
+      "nameserver-policy": {
+      
+        // DNS服务器
+        "RULE-SET:GlobalDNS_Domain": [ 'system' ],
+        "RULE-SET:ChinaDNS_Domain": [ 'system' ],
+      
+        // 国内
+        "RULE-SET:GeositeCN_Domain": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
+        "GEOSITE:cloudflare-cn": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
+        "RULE-SET:CloudflareCN_Do_Resolve": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
+
+        // AI
+        "GEOSITE:openai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "RULE-SET:OpenAI_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "GEOSITE:google-gemini": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "RULE-SET:Gemini_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "GEOSITE:anthropic": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "RULE-SET:Claude_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "RULE-SET:Copilot_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "GEOSITE:xai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+        "RULE-SET:Grok_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     
+        // 社交
+        "GEOSITE:twitter": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
+        "RULE-SET:Twitter_Do_Resolve": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
+        "GEOSITE:telegram": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
+        "RULE-SET:Telegram_Do_Resolve": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
  
-  // 覆盖原配置中DNS配置
+        // 流媒体
+        "GEOSITE:youtube": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
+        "RULE-SET:YouTube_Do_Resolve": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
+        "GEOSITE:tiktok": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
+        "RULE-SET:TikTok_Do_Resolve": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
+      
+        // 工具
+        "GEOSITE:bing": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+        "RULE-SET:Bing_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+
+        // 服务
+        "GEOSITE:google": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
+        "RULE-SET:Google_Do_Resolve": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
+        "RULE-SET:Apple_Domain": ["https://dns.alidns.com/dns-query#苹果服务", "https://doh.pub/dns-query#苹果服务"],
+        "RULE-SET:MicrosoftAPPs_Domain": ["https://dns.alidns.com/dns-query#微软服务", "https://doh.pub/dns-query#微软服务"],
+      
+        // 海外CDN
+        "GEOSITE:cloudflare": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+        "RULE-SET:Cloudflare_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+        "GEOSITE:akamai": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+        "RULE-SET:AkamaiCloud_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+        "GEOSITE:fastly": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+
+        // 兜底
+        "+.*": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+
+    }
+  };
+
+  // 覆盖主配置里的 dns
   config["dns"] = dnsConfig;
 
   // 覆盖原配置中的代理组
@@ -723,11 +727,12 @@ function main(config) {
   
   // 地区分组
   addRegions(config);
-    config["proxies"].forEach(proxy => {
-    
-    // 为每个节点设置 udp = true
-      proxy.udp = true
-    })
+    config["proxies"]?.forEach(proxy => {
+      
+      // 为每个节点设置 udp = true
+      if (proxy) proxy.udp = true;
+      
+    });
   
     // 返回修改后的配置
     return config;
