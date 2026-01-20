@@ -47,11 +47,6 @@ const regionConfig = [
 ];
 
 
-    
-
-
-
-
 // DNS配置
 const dnsConfig = {
   "enable": true,
@@ -62,97 +57,80 @@ const dnsConfig = {
   "use-hosts": true,
   "use-system-hosts": true,
   "skip-cert-verify": false,
+  "respect-rules": true,
   "cache-algorithm": "arc",
   "enhanced-mode": "redir-host",
   "fake-ip-range": "198.18.0.1/16",
   "fake-ip-filter-mode": "blacklist",
   "fake-ip-filter": [ '+.*' ],
-
+  
   "proxy-server-nameserver":[ "system" ],
-    
   "default-nameserver": [ "system" ],
-    
   "direct-nameserver ": [
     "https://dns.alidns.com/dns-query",
-    "https://dns.google/dns-query"],
-    
+    "https://dns.google/dns-query"
+  ],
   "nameserver": [
     "https://cloudflare-dns.com/dns-query",
-    "https://dns.google/dns-query"],
+    "https://dns.google/dns-query"
+  ],
+     // DNS分流
+    "nameserver-policy": {
+      
+     // DNS服务器
+    "RULE-SET:GlobalDNS_Domain": [ 'system' ],
+    "RULE-SET:ChinaDNS_Domain": [ 'system' ],
+      
+    // 国内
+    "RULE-SET:GeositeCN_Domain": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
+    "GEOSITE:cloudflare-cn": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
+    "RULE-SET:CloudflareCN_Do_Resolve": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
 
-  "respect-rules": true,
+     // AI
+     "GEOSITE:openai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "RULE-SET:OpenAI_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "GEOSITE:google-gemini": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "RULE-SET:Gemini_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "GEOSITE:anthropic": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "RULE-SET:Claude_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "RULE-SET:Copilot_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "GEOSITE:xai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     "RULE-SET:Grok_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
+     
+     // 社交
+     "GEOSITE:twitter": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
+     "RULE-SET:Twitter_Do_Resolve": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
+     "GEOSITE:telegram": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
+     "RULE-SET:Telegram_Do_Resolve": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
+ 
+     // 流媒体
+     "GEOSITE:youtube": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
+     "RULE-SET:YouTube_Do_Resolve": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
+     "GEOSITE:tiktok": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
+     "RULE-SET:TikTok_Do_Resolve": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
+      
+     // 工具
+     "GEOSITE:bing": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+     "RULE-SET:Bing_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
 
-  "nameserver-policy": {
-   // DNS分流： DNS域名解析
-   "RULE-SET:GlobalDNS_Domain": [ 'system' ],
-   "RULE-SET:ChinaDNS_Domain": [ 'system' ],
-   // DNS分流：国内
-   "RULE-SET:GeositeCN_Domain": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
-"GEOSITE:cloudflare-cn": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
-"RULE-SET:CloudflareCN_Do_Resolve": ["https://dns.alidns.com/dns-query#全局直连", "https://doh.pub/dns-query#全局直连"],
+     // 服务
+     "GEOSITE:google": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
+     "RULE-SET:Google_Do_Resolve": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
+     "RULE-SET:Apple_Domain": ["https://dns.alidns.com/dns-query#苹果服务", "https://doh.pub/dns-query#苹果服务"],
+     "RULE-SET:MicrosoftAPPs_Domain": ["https://dns.alidns.com/dns-query#微软服务", "https://doh.pub/dns-query#微软服务"],
+      
+     // 海外CDN
+     "GEOSITE:cloudflare": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+     "RULE-SET:Cloudflare_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+     "GEOSITE:akamai": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+     "RULE-SET:AkamaiCloud_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+     "GEOSITE:fastly": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
 
-
-"GEOSITE:openai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"RULE-SET:OpenAI_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"GEOSITE:xai": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"RULE-SET:Grok_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"GEOSITE:anthropic": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"RULE-SET:Claude_Do_Resolve": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"GEOSITE:google-gemini": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"RULE-SET:Gemini_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-"RULE-SET:Copilot_Domain": ["https://cloudflare-dns.com/dns-query#AI", "https://dns.google/dns-query#AI"],
-
-
-"GEOSITE:bing": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-"RULE-SET:Bing_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-
-
-
-"GEOSITE:twitter": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
-"RULE-SET:Twitter_Do_Resolve": ["https://cloudflare-dns.com/dns-query#X", "https://dns.google/dns-query#X"],
-"GEOSITE:youtube": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
-"RULE-SET:YouTube_Do_Resolve": ["https://cloudflare-dns.com/dns-query#YouTube", "https://dns.google/dns-query#YouTube"],
-"GEOSITE:netflix": ["https://cloudflare-dns.com/dns-query#Netflix", "https://dns.google/dns-query#Netflix"],
-"RULE-SET:Netflix_Do_Resolve": ["https://cloudflare-dns.com/dns-query#Netflix", "https://dns.google/dns-query#Netflix"],
-"GEOSITE:tiktok": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
-"RULE-SET:TikTok_Do_Resolve": ["https://cloudflare-dns.com/dns-query#TikTok", "https://dns.google/dns-query#TikTok"],
-"GEOSITE:spotify": ["https://cloudflare-dns.com/dns-query#Spotify", "https://dns.google/dns-query#Spotify"],
-"RULE-SET:Spotify_Do_Resolve": ["https://cloudflare-dns.com/dns-query#Spotify", "https://dns.google/dns-query#Spotify"],
-"GEOSITE:telegram": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
-"RULE-SET:Telegram_Do_Resolve": ["https://cloudflare-dns.com/dns-query#Telegram", "https://dns.google/dns-query#Telegram"],
-
-
-
-
-
-
-"GEOSITE:google": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
-"RULE-SET:Google_Do_Resolve": ["https://cloudflare-dns.com/dns-query#谷歌服务", "https://dns.google/dns-query#谷歌服务"],
-
-
-"RULE-SET:Apple_Domain": ["https://dns.alidns.com/dns-query#苹果服务", "https://doh.pub/dns-query#苹果服务"],
-"RULE-SET:MicrosoftAPPs_Domain": ["https://dns.alidns.com/dns-query#微软服务", "https://doh.pub/dns-query#微软服务"],
-
-"GEOSITE:cloudflare": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-"RULE-SET:Cloudflare_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-"GEOSITE:akamai": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-"RULE-SET:AkamaiCloud_Do_Resolve": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-"GEOSITE:fastly": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
-
-
-
-
-
-
-// DNS分流：兜底
-      '+.*': ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
+     // 兜底
+     "+.*": ["https://cloudflare-dns.com/dns-query#节点选择", "https://dns.google/dns-query#节点选择"],
 
   }
 };
-
-
-
-
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -160,6 +138,7 @@ const ruleProviderCommon = {
   "format": "yaml",
   "interval": 86400
 };
+
 // 规则集配置
 const ruleProviders = {
   "GlobalDNS_Domain": {
@@ -186,7 +165,7 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/ChinaDNS/ChinaDNS_IP.yaml",
     "path": "./ruleset/ChinaDNS_IP.yaml"
   },
- "Lan_Do_Resolve": {
+  "Lan_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml",
@@ -198,76 +177,102 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml",
     "path": "./ruleset/BlockHttpDNS_Do_Resolve.yaml"
   },
-"Hijacking_Do_Resolve": {
+  "Hijacking_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Hijacking/Hijacking.yaml",
     "path": "./ruleset/Hijacking_Do_Resolve.yaml"
   },
-"HijackingPlus_Do_Resolve": {
+  "HijackingPlus_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/HijackingPlus/HijackingPlus.yaml",
     "path": "./ruleset/HijackingPlus_Do_Resolve.yaml"
   },
-"PreRepairEasyPrivacy_REJECT_Do_Resolve": {
+  "PreRepairEasyPrivacy_REJECT_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml",
     "path": "./ruleset/PreRepairEasyPrivacy_REJECT_Do_Resolve.yaml"
   },
-"GeositeCN_Domain": {
+  "my-Emby": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.yaml",
+    "path": "./ruleset/Asanagi8/my-Emby.yaml"  
+  }, 
+  "GeositeCN_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
     "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/GeositeCN/GeositeCN_Domain.yaml",
     "path": "./ruleset/GeositeCN_Domain.yaml"
   },
-"CloudflareCN_Do_Resolve": {
+  "CloudflareCN_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflarecn/Cloudflarecn.yaml",
     "path": "./ruleset/CloudflareCN_Do_Resolve.yaml"
   },
-"YouTube_Do_Resolve": {
+  "OpenAI_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/YouTube/YouTube.yaml",
-    "path": "./ruleset/YouTube_Do_Resolve.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/OpenAI/OpenAI.yaml",
+    "path": "./ruleset/OpenAI_Do_Resolve.yaml"    
   },
-"Netflix_Do_Resolve": {
+  "Gemini_Domain": {
+    ...ruleProviderCommon,
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Gemini/Gemini_Domain.yaml",
+    "path": "./ruleset/Gemini_Domain.yaml"    
+  },
+  "Claude_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Netflix/Netflix.yaml",
-    "path": "./ruleset/Netflix_Do_Resolve.yaml"
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Claude/Claude.yaml",
+    "path": "./ruleset/Claude_Do_Resolve.yaml"
   },
-"TikTok_Do_Resolve": {
+  "Copilot_Domain": {
     ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/TikTok/TikTok.yaml",
-    "path": "./ruleset/TikTok_Do_Resolve"
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Copilot/Copilot_Domain.yaml",
+    "path": "./ruleset/Copilot_Domain.yaml"    
   },
-"Spotify_Do_Resolve": {
+  "Grok_Domain": {
     ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Spotify/Spotify.yaml",
-    "path": "./ruleset/Spotify_Do_Resolve.yaml"
+    "behavior": "domain",
+    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Grok/Grok_Domain.yaml",
+    "path": "./ruleset/Grok_Domain.yaml"    
   },
-"Twitter_Do_Resolve": {
+  "Twitter_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Twitter/Twitter.yaml",
     "path": "./ruleset/Twitter_Do_Resolve"
   },
-"Telegram_Do_Resolve": {
+  "Telegram_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Telegram/Telegram.yaml",
     "path": "./ruleset/Telegram_Do_Resolve.yaml"
   },
-
-
-
-  
+  "YouTube_Do_Resolve": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/YouTube/YouTube.yaml",
+    "path": "./ruleset/YouTube_Do_Resolve.yaml"
+  },
+  "TikTok_Do_Resolve": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/TikTok/TikTok.yaml",
+    "path": "./ruleset/TikTok_Do_Resolve"
+  },
+  "Bing_Do_Resolve": {
+    ...ruleProviderCommon,
+    "behavior": "classical",
+    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Bing/Bing.yaml",
+    "path": "./ruleset/Bing_Do_Resolve.yaml"    
+  },
   "Apple_IP": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
@@ -292,93 +297,42 @@ const ruleProviders = {
     "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/MicrosoftAPPs/MicrosoftAPPs_Domain.yaml",
     "path": "./ruleset/MicrosoftAPPs_Domain.yaml" 
   },
-  "Claude_Do_Resolve": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Claude/Claude.yaml",
-    "path": "./ruleset/Claude_Do_Resolve.yaml"
-  },
-  "Copilot_Domain": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Copilot/Copilot_Domain.yaml",
-    "path": "./ruleset/Copilot_Domain.yaml"    
-  },
- "Gemini_Domain": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Gemini/Gemini_Domain.yaml",
-    "path": "./ruleset/Gemini_Domain.yaml"    
-  },
-  "OpenAI_Do_Resolve": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/OpenAI/OpenAI.yaml",
-    "path": "./ruleset/OpenAI_Do_Resolve.yaml"    
-  },
-
-"Grok_Domain": {
-    ...ruleProviderCommon,
-    "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Grok/Grok_Domain.yaml",
-    "path": "./ruleset/Grok_Domain.yaml"    
-  },
-  
-
-
-
-"Bing_Do_Resolve": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Bing/Bing.yaml",
-    "path": "./ruleset/Bing_Do_Resolve.yaml"    
-  },
-  
-  "my-Emby": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.yaml",
-    "path": "./ruleset/Asanagi8/my-Emby.yaml"  
-  }, 
-
-
-
-
-
-"Cloudflare_Do_Resolve": {
+  "Cloudflare_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Cloudflare/Cloudflare.yaml",
     "path": "./ruleset/Cloudflare_Do_Resolve.yaml"    
   },
-"Cloudflare_IPv4_Do_Resolve": {
+  "Cloudflare_IPv4_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
     "url": "https://www.cloudflare.com/ips-v4",
     "path": "./ruleset/Cloudflare_IPv4_Do_Resolve.yaml"    
   },
-"Cloudflare_IPv6_Do_Resolve": {
+  "Cloudflare_IPv6_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
     "url": "https://www.cloudflare.com/ips-v6",
     "path": "./ruleset/Cloudflare_IPv6_Do_Resolve.yaml"    
   },
-"AkamaiCloud_Do_Resolve": {
+  "AkamaiCloud_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
     "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloud/AkamaiCloud/AkamaiCloud.yaml",
     "path": "./ruleset/AkamaiCloud_Do_Resolve.yaml"    
   },
-"Fastly_IP_Do_Resolve": {
+  "Fastly_IP_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
     "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Fastly/Fastly_IP.yaml",
     "path": "./ruleset/Fastly_IP_Do_Resolve.yaml"    
   },
 };
+
 // 规则
 const rules = [
-
+  
+    // DNS & NTP
     "AND,((OR,((DST-PORT,53),(DST-PORT,853))),(NOT,((GEOIP,CN)))),节点选择",
     "RULE-SET,GlobalDNS_Domain,节点选择",
     "RULE-SET,GlobalDNS_IP,节点选择",
@@ -388,16 +342,11 @@ const rules = [
     "RULE-SET,ChinaDNS_IP,全局直连",
 
     "AND,((NETWORK,udp),(DST-PORT,123),(NOT,((GEOIP,CN)))),节点选择",
-
     "AND,((NETWORK,udp),(DST-PORT,123),(GEOIP,CN)),全局直连",
 
     // 局域网
     "GEOSITE,private,全局直连",
     "RULE-SET,Lan_Do_Resolve,全局直连",
-
-
-    // 个人emby
-    "RULE-SET,my-Emby,Emby",
 
     // 反私有DNS
     "GEOSITE,category-httpdns-cn,全局拦截",
@@ -409,6 +358,9 @@ const rules = [
 
     // 保护隐私
     "RULE-SET,PreRepairEasyPrivacy_REJECT_Do_Resolve,全局拦截",
+  
+    // 个人emby
+    "RULE-SET,my-Emby,Emby",
 
     // GEOSITE + GeoIP（中国）
     "RULE-SET,GeositeCN_Domain,全局直连",
@@ -416,48 +368,41 @@ const rules = [
     "GEOIP,cloudflare-cn,全局直连",
     "RULE-SET,CloudflareCN_Do_Resolve,全局直连",
 
-
-    "GEOSITE,xai,AI",
-    "RULE-SET,Grok_Domain,AI",
-    "GEOSITE,anthropic,AI",
-    "RULE-SET,Claude_Do_Resolve,AI",
+    // AI
+    "GEOSITE,openai,AI",
+    "RULE-SET,OpenAI_Do_Resolve,AI",
     "GEOSITE,google-gemini,AI",
     "RULE-SET,Gemini_Domain,AI",
+    "GEOSITE,anthropic,AI",
+    "RULE-SET,Claude_Do_Resolve,AI",
     "RULE-SET,Copilot_Domain,AI",
-
-
-
-
-    "GEOSITE,netflix,Netflix",
-    "RULE-SET,Netflix_Do_Resolve,Netflix",
-    "GEOSITE,tiktok,TikTok",
-    "RULE-SET,TikTok_Do_Resolve,TikTok",
-    "GEOSITE,spotify,Spotify",
-    "RULE-SET,Spotify_Do_Resolve,Spotify",
-    "GEOSITE,telegram,Telegram",
-    "RULE-SET,Telegram_Do_Resolve,Telegram",
-    "GEOSITE,youtube,YouTube",
-    "RULE-SET,YouTube_Do_Resolve,YouTube",
+    "GEOSITE,xai,AI",
+    "RULE-SET,Grok_Domain,AI",
+  
+    // 社交
     "GEOSITE,twitter,X",
     "RULE-SET,Twitter_Do_Resolve,X",
-
-
-
-
+    "GEOSITE,telegram,Telegram",
+    "RULE-SET,Telegram_Do_Resolve,Telegram",
+  
+    // 流媒体
+    "GEOSITE,youtube,YouTube",
+    "RULE-SET,YouTube_Do_Resolve,YouTube",
+    "GEOSITE,tiktok,TikTok",
+    "RULE-SET,TikTok_Do_Resolve,TikTok",
+  
+    // 工具
     "GEOSITE,bing,节点选择",
     "RULE-SET,Bing_Do_Resolve,节点选择",
-
-
+  
+    // 服务
     "GEOSITE,google,谷歌服务",
     "RULE-SET,Google_Do_Resolve,谷歌服务",
     "RULE-SET,Apple_Domain,苹果服务",
     "RULE-SET,Apple_IP,苹果服务",
-    "GEOSITE,google,谷歌服务",
-    "RULE-SET,Google_Do_Resolve,谷歌服务",
+    "RULE-SET,MicrosoftAPPs_Domain,微软服务",
 
-
-
-
+    // 海外
     "GEOSITE,cloudflare,节点选择",
     "RULE-SET,Cloudflare_Do_Resolve,节点选择",
     "RULE-SET,Cloudflare_IPv4_Do_Resolve,节点选择",
@@ -467,13 +412,8 @@ const rules = [
     "GEOSITE,fastly,节点选择",
     "RULE-SET,Fastly_IP_Do_Resolve,节点选择",
 
-
     // 兜底分流
     "MATCH,漏网之鱼"
-
-
-
-
   
 ];
 
@@ -575,8 +515,7 @@ function addRegions(config) {
       const skipGroups = [
         "地区选择",
         "全局直连",
-        "全局拦截", 
-        "广告过滤", 
+        "全局拦截",  
         "手动选择",
         ...regions // 必须包含这个，防止地区组自包含导致 loop 环路报错
       ];
@@ -597,10 +536,10 @@ function main(config) {
     typeof config?.["proxy-providers"] === "object" ? Object.keys(config["proxy-providers"]).length : 0;
   if (proxyCount === 0 && proxyProviderCount === 0) {
     throw new 错误("配置文件中未找到任何代理");
- }
+  }
 
-// 记住选择 & 嗅探
-config["profile"] = {
+  // 记住选择 & 嗅探
+  config["profile"] = {
     "tracing": true,
     "store-selected": true,
     "store-fake-ip": true
@@ -612,15 +551,15 @@ config["profile"] = {
       "HTTP": { 
         "ports": [80, "8080-8880"], 
           "override-destination": true 
-          },
+      },
       "TLS": { 
         "ports": [443, 8443], 
         "override-destination": true
-            },
+      },
       "QUIC": { 
         "ports": [443, 8443], 
         "override-destination": true
-           }
+      }
     },
     "force-domain": ["+.v2ex.com"],
     "skip-domain": [
@@ -634,16 +573,25 @@ config["profile"] = {
       "+.wechatapp.com", 
       "+.vivox.com", 
       "+.oray.com", 
-      "+.sunlogin.net"]
+      "+.sunlogin.net"
+    ]
   };
+
+ // 配置 TUN 规则
+  config["tun"] = {
+    "enable": true,
+    "auto-detect-interface": true,
+    "auto-route": true,
+    "stack": system,
+    "dns-hijack": ["any:53"],
+    "inet6-route-address": ["2000::/3"],
+  }
   
-  
-config["hosts"] = {
+ // Clash：全局生效 
+  config["hosts"] = {
     "+.clash.dev": "127.0.0.1"
   }
  
-
-
   // 覆盖原配置中DNS配置
   config["dns"] = dnsConfig;
 
@@ -726,20 +674,6 @@ config["hosts"] = {
     },
     {
       ...groupBaseOption,
-      "name": "Netflix",
-      "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移", "全局直连"],
-      "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Netflix.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Spotify",
-      "type": "select",
-      "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
-      "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Spotify.png"
-    },
-    {
-      ...groupBaseOption,
       "name": "微软服务",
       "type": "select",
       "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
@@ -758,13 +692,6 @@ config["hosts"] = {
       "type": "select",
       "proxies": ["节点选择", "地区选择", "延迟选优", "故障转移","全局直连"],
       "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Google_Search.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "广告过滤",
-      "type": "select",
-      "proxies": ["REJECT", "DIRECT"],
-      "icon": "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/AdBlack.png"
     },
     {
       ...groupBaseOption,
@@ -793,13 +720,15 @@ config["hosts"] = {
   // 覆盖原配置中的规则
   config["rule-providers"] = ruleProviders;
   config["rules"] = rules;
+  
   // 地区分组
   addRegions(config);
-  config["proxies"].forEach(proxy => {
+    config["proxies"].forEach(proxy => {
+    
     // 为每个节点设置 udp = true
-    proxy.udp = true
-
-  })
-  // 返回修改后的配置
-  return config;
+      proxy.udp = true
+    })
+  
+    // 返回修改后的配置
+    return config;
 }
