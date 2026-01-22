@@ -45,6 +45,7 @@ const regionConfig = [
       icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Area.png"
   }
 ];
+
 // 国内DNS服务器
 const domesticNameservers = [
   "https://223.5.5.5/dns-query", // 阿里DoH
@@ -67,24 +68,31 @@ const dnsConfig = {
   "enhanced-mode": "fake-ip",
   "fake-ip-range": "198.18.0.1/16",
   "fake-ip-filter": [
+    
     // 本地主机/设备
     "+.lan",
     "+.local",
+    
     // // Windows网络出现小地球图标
     "+.msftconnecttest.com",
     "+.msftncsi.com",
+    
     // QQ快速登录检测失败
     "localhost.ptlogin2.qq.com",
     "localhost.sec.qq.com",
+    
       // 追加以下条目
     "+.in-addr.arpa", 
     "+.ip6.arpa",
     "time.*.com",
     "time.*.gov",
     "pool.ntp.org",
+    
     // 微信快速登录检测失败
     "localhost.work.weixin.qq.com"
+    
   ],
+  
   "default-nameserver": ["223.5.5.5","119.29.29.29"],//可修改成自己ISP的DNS
   "nameserver": [...foreignNameservers],
   "proxy-server-nameserver":[...domesticNameservers],
@@ -93,12 +101,14 @@ const dnsConfig = {
     "geosite:cn": domesticNameservers
   }
 };
+
 // 规则集通用配置
 const ruleProviderCommon = {
   "type": "http",
   "format": "yaml",
   "interval": 86400
 };
+
 // 规则集配置
 const ruleProviders = {
   "GlobalDNS_Domain": {
@@ -158,7 +168,7 @@ const ruleProviders = {
   "my-Emby": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://fastly.jsdelivr.net/gh/Asanagi8/shadowrocket-config@main/Ruleset/Emby.yaml",
+    "url": "https://cdn.jsdelivr.net/gh/Asanagi8/Rules@master/Ruleset/Emby.yaml",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"  
   }, 
   "GeositeCN_Domain": {
@@ -486,6 +496,7 @@ function addRegions(config) {
     }
   }
 }
+
 // 程序入口
 function main(config) {
   const proxyCount = config?.proxies?.length ?? 0;
@@ -494,7 +505,6 @@ function main(config) {
   if (proxyCount === 0 && proxyProviderCount === 0) {
     throw new Error("配置文件中未找到任何代理");
   }
-
 
   // 覆盖原配置中DNS配置
   config["dns"] = dnsConfig;
