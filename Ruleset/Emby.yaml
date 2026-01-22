@@ -1,8 +1,6 @@
 #自用Emby
 payload:
-  # SNTP公益服
+  # SNTP
   - DOMAIN-SUFFIX,cn2gias.uk
-  # CookieEmby公益服
-  - DOMAIN-SUFFIX,info.us.kg
-  # 404NotFound公益服
-  - DOMAIN-SUFFIX,notfounda.shop
+  # CookieEmby
+  - DOMAIN-SUFFIX,nas.edu.kg
