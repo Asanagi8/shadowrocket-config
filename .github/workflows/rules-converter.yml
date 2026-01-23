@@ -1,0 +1,190 @@
+name: Sync and Convert Multiple Rules
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 UTC 0:00（北京时间约 8:00）
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Convert multiple rules
+        run: |
+          mkdir -p Ruleset
+          cat <<EOF > convert.py
+          import yaml
+          import datetime
+          import re
+          import os
+          import urllib.request
+
+          # 定义要转换的规则集列表
+          rulesets = [
+              {
+                  'name': 'Gemini',
+                  'type': 'domain',  # domain 类型
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Gemini/Gemini_Domain.yaml',
+                  'output': 'Ruleset/Gemini.list'
+              },
+              {
+                  'name': 'Grok',
+                  'type': 'domain',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Grok/Grok_Domain.yaml',
+                  'output': 'Ruleset/Grok.list'
+              },
+              {
+                  'name': 'Copilot',
+                  'type': 'domain',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Copilot/Copilot_Domain.yaml',
+                  'output': 'Ruleset/Copilot.list'
+              },
+              {
+                  'name': 'Apple',
+                  'type': 'domain',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Apple/Apple_Domain.yaml',
+                  'output': 'Ruleset/AppleAI.list'
+              },
+              {
+                  'name': 'AppleIP',
+                  'type': 'ip',  # ip 类型（纯 CIDR）
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Apple/Apple_IP.yaml',
+                  'output': 'Ruleset/AppleIP.list'
+              },
+              {
+                  'name': 'GeositeCN',
+                  'type': 'domain',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/GeositeCN/GeositeCN_Domain.yaml',
+                  'output': 'Ruleset/GeositeCN.list'
+              },
+              {
+                  'name': 'Microsoft',
+                  'type': 'domain',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/MicrosoftAPPs/MicrosoftAPPs_Domain.yaml',
+                  'output': 'Ruleset/Microsoft.list'
+              },
+              {
+                  'name': 'HijackingPlus',
+                  'type': 'classical',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/HijackingPlus/HijackingPlus.yaml',
+                  'output': 'Ruleset/HijackingPlus.list'
+              },
+              {
+                  'name': 'PreRepairEasyPrivacy',
+                  'type': 'classical',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml',
+                  'output': 'Ruleset/PreRepairEasyPrivacy.list'
+              },
+              # 在这里添加更多……
+              # 示例添加 China（如果有）：
+              # {
+              #     'name': 'China',
+              #     'type': 'domain'/'ip'/'classical',
+              #     'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/China/China.yaml',
+              #     'output': 'Ruleset/China.list'
+              # },
+          ]
+
+          base_raw_url = 'https://raw.githubusercontent.com/Asanagi8/Rules/main/'
+
+          for rs in rulesets:
+              print(f"处理 {rs['name']} ({rs.get('type', 'domain')})...")
+              temp_yaml = f"temp_{rs['name']}.yaml"
+              urllib.request.urlretrieve(rs['source'], temp_yaml)
+
+              with open(temp_yaml, 'r', encoding='utf-8') as f:
+                  data = yaml.safe_load(f)
+
+              rules = set()
+              payload = data.get('payload', [])
+
+              rule_type = rs.get('type', 'domain')
+
+              if rule_type == 'domain':
+              
+                  # Domain 转换
+                  for item in payload:
+                      if not isinstance(item, str):
+                          continue
+                      item = item.strip().lstrip('+.')
+                      if '*' in item:
+                          base = re.split(r'\*', item)[0].rstrip('.')
+                          if base:
+                              rules.add(f'DOMAIN-KEYWORD,{base}')
+                      elif item:
+                          rules.add(f'DOMAIN-SUFFIX,{item}')
+
+              elif rule_type == 'ip':
+              
+                  # 纯 CIDR 转换
+                  for item in payload:
+                      if not isinstance(item, str):
+                          continue
+                      item = item.strip()
+                      if '/' not in item:
+                          continue
+                      if ':' in item:
+                          rules.add(f'IP-CIDR6,{item},no-resolve')
+                      else:
+                          rules.add(f'IP-CIDR,{item},no-resolve')
+
+              elif rule_type == 'classical':
+
+                  # 混合预格式化规则：直接复制，并为 IP 加 no-resolve
+                  for item in payload:
+                      if not isinstance(item, str):
+                          continue
+                      item = item.strip()
+                      if item.startswith(('IP-CIDR,', 'IP-CIDR6,')) and ',no-resolve' not in item.lower():
+                          item += ',no-resolve'
+                      if item:
+                          rules.add(item)
+
+              sorted_rules = sorted(rules)
+              
+              # 标题后缀根据类型自动调整
+              raw_url = base_raw_url + rs['output']
+              if rule_type == 'domain':
+                  title_suffix = 'Domain'
+              elif rule_type == 'ip':
+                  title_suffix = 'IP'
+              else:
+                  title_suffix = 'Classical'
+
+              with open(rs['output'], 'w', encoding='utf-8') as f:
+                  f.write(f'# {rs["name"]} {title_suffix} Rules for Shadowrocket\n')
+                  f.write('# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash\n')
+                  f.write(f'# 最后更新时间：{datetime.datetime.utcnow().isoformat()} UTC\n')
+                  f.write(f'# 使用方式：在小火箭配置中添加 RULE-SET,{raw_url},你的策略组名\n\n')
+                  f.write('\n'.join(sorted_rules))
+                  f.write('\n')
+
+              os.remove(temp_yaml)
+          EOF
+          python3 convert.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions@github.com'
+          git add Ruleset/*.list
+          if git diff --staged --quiet; then
+            echo "无变化，无需提交"
+          else
+            git commit -m "Auto update multiple rules $(date -u)"
+            git push
+          fi
