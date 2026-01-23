@@ -287,12 +287,13 @@ const ruleProviders = {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
     "url": "https://www.cloudflare.com/ips-v6",
-    "path": "./ruleset/Cloudflare_IPv6_Do_Resolve.yaml"    
+    "path": "./ruleset/Cloudflare_IPv6_Do_Resolve.yaml"
+  },
   "Fastly_IP_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
     "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Fastly/Fastly_IP.yaml",
-    "path": "./ruleset/Fastly_IP_Do_Resolve.yaml"    
+    "path": "./ruleset/Fastly_IP_Do_Resolve.yaml"
   },
 };
 
