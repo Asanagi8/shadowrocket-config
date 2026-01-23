@@ -9,6 +9,8 @@ const groupBaseOption = {
   "max-failed-times": 1,
   "hidden": false
 };
+
+// 添加地区分组
 const regionConfig = [
   {
       name: "🇭🇰 香港 📶",
@@ -51,11 +53,13 @@ const domesticNameservers = [
   "https://223.5.5.5/dns-query", // 阿里DoH
   "https://doh.pub/dns-query" // 腾讯DoH
 ];
+
 // 国外DNS服务器
 const foreignNameservers = [
   "https://1.1.1.1/dns-query", // CloudflareDNS
   "https://8.8.8.8/dns-query", // GoogleDNS  
 ];
+
 // DNS配置
 const dnsConfig = {
   "enable": true,
@@ -114,163 +118,163 @@ const ruleProviders = {
   "GlobalDNS_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/GlobalDNS/GlobalDNS_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/GlobalDNS/GlobalDNS_Domain.yaml",
     "path": "./ruleset/GlobalDNS_Domain.yaml"
   },
   "GlobalDNS_IP": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/GlobalDNS/GlobalDNS_IP.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/GlobalDNS/GlobalDNS_IP.yaml",
     "path": "./ruleset/GlobalDNS_IP.yaml"
   },
   "ChinaDNS_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/ChinaDNS/ChinaDNS_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/ChinaDNS/ChinaDNS_Domain.yaml",
     "path": "./ruleset/ChinaDNS_Domain.yaml"
   },
   "ChinaDNS_IP": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/ChinaDNS/ChinaDNS_IP.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/ChinaDNS/ChinaDNS_IP.yaml",
     "path": "./ruleset/ChinaDNS_IP.yaml"
   },
   "Lan_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Lan/Lan.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Lan/Lan.yaml",
     "path": "./ruleset/Lan_Do_Resolve.yaml"
   },
   "BlockHttpDNS_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/BlockHttpDNS/BlockHttpDNS.yaml",
     "path": "./ruleset/BlockHttpDNS_Do_Resolve.yaml"
   },
   "Hijacking_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Hijacking/Hijacking.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Hijacking/Hijacking.yaml",
     "path": "./ruleset/Hijacking_Do_Resolve.yaml"
   },
   "HijackingPlus_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/HijackingPlus/HijackingPlus.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/HijackingPlus/HijackingPlus.yaml",
     "path": "./ruleset/HijackingPlus_Do_Resolve.yaml"
   },
   "PreRepairEasyPrivacy_REJECT_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml",
     "path": "./ruleset/PreRepairEasyPrivacy_REJECT_Do_Resolve.yaml"
   },
   "my-Emby": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/Asanagi8/Rules@master/Ruleset/Emby.yaml",
+    "url": "https://raw.githubusercontent.com/Asanagi8/Rules/master/Ruleset/Emby.yaml",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"  
   }, 
   "GeositeCN_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/GeositeCN/GeositeCN_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/GeositeCN/GeositeCN_Domain.yaml",
     "path": "./ruleset/GeositeCN_Domain.yaml"
   },
   "CloudflareCN_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/Cloudflarecn/Cloudflarecn.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflarecn/Cloudflarecn.yaml",
     "path": "./ruleset/CloudflareCN_Do_Resolve.yaml"
   },
   "OpenAI_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/OpenAI/OpenAI.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/OpenAI/OpenAI.yaml",
     "path": "./ruleset/OpenAI_Do_Resolve.yaml"    
   },
   "Gemini_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Gemini/Gemini_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Gemini/Gemini_Domain.yaml",
     "path": "./ruleset/Gemini_Domain.yaml"    
   },
   "Claude_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Claude/Claude.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml",
     "path": "./ruleset/Claude_Do_Resolve.yaml"
   },
   "Copilot_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Copilot/Copilot_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Copilot/Copilot_Domain.yaml",
     "path": "./ruleset/Copilot_Domain.yaml"    
   },
   "Grok_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Grok/Grok_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Grok/Grok_Domain.yaml",
     "path": "./ruleset/Grok_Domain.yaml"    
   },
   "Twitter_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Twitter/Twitter.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml",
     "path": "./ruleset/Twitter_Do_Resolve"
   },
   "Telegram_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Telegram/Telegram.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml",
     "path": "./ruleset/Telegram_Do_Resolve.yaml"
   },
   "YouTube_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/YouTube/YouTube.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/YouTube/YouTube.yaml",
     "path": "./ruleset/YouTube_Do_Resolve.yaml"
   },
   "TikTok_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/TikTok/TikTok.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/TikTok/TikTok.yaml",
     "path": "./ruleset/TikTok_Do_Resolve"
   },
   "Bing_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Bing/Bing.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Bing/Bing.yaml",
     "path": "./ruleset/Bing_Do_Resolve.yaml"    
   },
   "Apple_IP": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Apple/Apple_IP.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Apple/Apple_IP.yaml",
     "path": "./ruleset/Apple_IP.yaml"
   },
   "Apple_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Apple/Apple_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Apple/Apple_Domain.yaml",
     "path": "./ruleset/Apple_Domain.yaml"
   },
   "Google_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Google/Google.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Google/Google.yaml",
     "path": "./ruleset/Google_Do_Resolve.yaml"
   },
   "MicrosoftAPPs_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/MicrosoftAPPs/MicrosoftAPPs_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/MicrosoftAPPs/MicrosoftAPPs_Domain.yaml",
     "path": "./ruleset/MicrosoftAPPs_Domain.yaml" 
   },
   "Cloudflare_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@latest/rule/Clash/Cloudflare/Cloudflare.yaml",
+    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Cloudflare/Cloudflare.yaml",
     "path": "./ruleset/Cloudflare_Do_Resolve.yaml"    
   },
   "Cloudflare_IPv4_Do_Resolve": {
@@ -284,17 +288,10 @@ const ruleProviders = {
     "behavior": "ipcidr",
     "url": "https://www.cloudflare.com/ips-v6",
     "path": "./ruleset/Cloudflare_IPv6_Do_Resolve.yaml"    
-  },
-  "AkamaiCloud_Do_Resolve": {
-    ...ruleProviderCommon,
-    "behavior": "classical",
-    "url": "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Cloud/AkamaiCloud/AkamaiCloud.yaml",
-    "path": "./ruleset/AkamaiCloud_Do_Resolve.yaml"    
-  },
   "Fastly_IP_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://cdn.jsdelivr.net/gh/Accademia/Additional_Rule_For_Clash@latest/Fastly/Fastly_IP.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Fastly/Fastly_IP.yaml",
     "path": "./ruleset/Fastly_IP_Do_Resolve.yaml"    
   },
 };
@@ -377,8 +374,6 @@ const rules = [
     "RULE-SET,Cloudflare_Do_Resolve,节点选择",
     "RULE-SET,Cloudflare_IPv4_Do_Resolve,节点选择",
     "RULE-SET,Cloudflare_IPv6_Do_Resolve,节点选择",
-    "GEOSITE,akamai,节点选择",
-    "RULE-SET,AkamaiCloud_Do_Resolve,节点选择",
     "GEOSITE,fastly,节点选择",
     "RULE-SET,Fastly_IP_Do_Resolve,节点选择",
 
