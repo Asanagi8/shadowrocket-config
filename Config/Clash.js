@@ -160,25 +160,25 @@ const ruleProviders = {
   "HijackingPlus_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/HijackingPlus/HijackingPlus.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/HijackingPlus/HijackingPlus.yaml",
     "path": "./ruleset/HijackingPlus_Do_Resolve.yaml"
   },
   "PreRepairEasyPrivacy_REJECT_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml",
     "path": "./ruleset/PreRepairEasyPrivacy_REJECT_Do_Resolve.yaml"
   },
   "my-Emby": {
     ...ruleProviderCommon,
     "behavior": "classical",
-    "url": "https://raw.githubusercontent.com/Asanagi8/Rules/master/Ruleset/Emby.yaml",
+    "url": "https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Emby.yaml",
     "path": "./ruleset/Asanagi8/my-Emby.yaml"  
   }, 
   "GeositeCN_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/GeositeCN/GeositeCN_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/GeositeCN/GeositeCN_Domain.yaml",
     "path": "./ruleset/GeositeCN_Domain.yaml"
   },
   "CloudflareCN_Do_Resolve": {
@@ -196,7 +196,7 @@ const ruleProviders = {
   "Gemini_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Gemini/Gemini_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Gemini/Gemini_Domain.yaml",
     "path": "./ruleset/Gemini_Domain.yaml"    
   },
   "Claude_Do_Resolve": {
@@ -208,13 +208,13 @@ const ruleProviders = {
   "Copilot_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Copilot/Copilot_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Copilot/Copilot_Domain.yaml",
     "path": "./ruleset/Copilot_Domain.yaml"    
   },
   "Grok_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Grok/Grok_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Grok/Grok_Domain.yaml",
     "path": "./ruleset/Grok_Domain.yaml"    
   },
   "Twitter_Do_Resolve": {
@@ -250,13 +250,13 @@ const ruleProviders = {
   "Apple_IP": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Apple/Apple_IP.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Apple/Apple_IP.yaml",
     "path": "./ruleset/Apple_IP.yaml"
   },
   "Apple_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Apple/Apple_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Apple/Apple_Domain.yaml",
     "path": "./ruleset/Apple_Domain.yaml"
   },
   "Google_Do_Resolve": {
@@ -268,7 +268,7 @@ const ruleProviders = {
   "MicrosoftAPPs_Domain": {
     ...ruleProviderCommon,
     "behavior": "domain",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/MicrosoftAPPs/MicrosoftAPPs_Domain.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/MicrosoftAPPs/MicrosoftAPPs_Domain.yaml",
     "path": "./ruleset/MicrosoftAPPs_Domain.yaml" 
   },
   "Cloudflare_Do_Resolve": {
@@ -291,7 +291,7 @@ const ruleProviders = {
   "Fastly_IP_Do_Resolve": {
     ...ruleProviderCommon,
     "behavior": "ipcidr",
-    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/master/Fastly/Fastly_IP.yaml",
+    "url": "https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Fastly/Fastly_IP.yaml",
     "path": "./ruleset/Fastly_IP_Do_Resolve.yaml"    
   },
 };
