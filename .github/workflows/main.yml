@@ -2,7 +2,7 @@ name: Sync and Convert Gemini Rules
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # 每天 UTC 时间 3:00 执行（北京/台湾时间约 11:00，可自行调整）
+    - cron: '0 0 * * *'   # 每天 UTC 时间 0:00 执行（可自行调整）
   workflow_dispatch:      # 支持手动触发
 
 jobs:
