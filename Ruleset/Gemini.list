@@ -1,7 +1,7 @@
 # Gemini Domain Rules for Shadowrocket
 # 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
-# 最后更新时间：2026-01-23T16:35:11.430651 UTC
-# 使用方式：在小火箭配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Gemini.list,你的策略组名
+# 最后更新时间：2026-01-23T16:38:33.197332 UTC
+# 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Gemini.list,你的策略组名
 
 DOMAIN,google.com
 DOMAIN-KEYWORD,colab
