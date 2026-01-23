@@ -1,0 +1,22 @@
+# PreRepairEasyPrivacy Classical Rules for Shadowrocket
+# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
+# 最后更新时间：2026-01-23T19:37:32.971931 UTC
+# 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/PreRepairEasyPrivacy.list,你的策略组名
+
+DOMAIN-KEYWORD, amdc.m.taobao.com                              , REJECT-DROP
+DOMAIN-KEYWORD, analytics.                                     , REJECT-DROP
+DOMAIN-KEYWORD, app-analytics                                  , REJECT-DROP
+DOMAIN-KEYWORD, app-log.                                       , REJECT-DROP
+DOMAIN-KEYWORD, applog.                                        , REJECT-DROP
+DOMAIN-KEYWORD, guide-acs.taobao.com                           , REJECT-DROP
+DOMAIN-KEYWORD, ios-log.                                       , REJECT-DROP
+DOMAIN-KEYWORD, ioslog.                                        , REJECT-DROP
+DOMAIN-KEYWORD, pc-log.                                        , REJECT-DROP
+DOMAIN-KEYWORD, pclog.                                         , REJECT-DROP
+DOMAIN-SUFFIX , api.xsj.wasu.tv                                , REJECT-DROP
+DOMAIN-SUFFIX , bgg.baidu.com                                  , REJECT-DROP
+DOMAIN-SUFFIX , fclog.baidu.com                                , REJECT-DROP
+DOMAIN-SUFFIX , hector.baidu.com                               , REJECT-DROP
+DOMAIN-SUFFIX , hectorstatic.baidu.com                         , REJECT-DROP
+DOMAIN-SUFFIX , hm.baidu.com                                   , REJECT-DROP
+DOMAIN-SUFFIX , tcbox.baidu.com                                , REJECT-DROP

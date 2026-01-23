@@ -1,0 +1,46 @@
+# Apple Domain Rules for Shadowrocket
+# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
+# 最后更新时间：2026-01-23T19:37:32.145410 UTC
+# 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/AppleAI.list,你的策略组名
+
+DOMAIN-KEYWORD,aaplimg.com
+DOMAIN-KEYWORD,apple
+DOMAIN-KEYWORD,apple-cloudkit.com
+DOMAIN-KEYWORD,apple-dns.net
+DOMAIN-KEYWORD,apple-livephotoskit.com
+DOMAIN-KEYWORD,apple-mapkit.com
+DOMAIN-KEYWORD,apple.co
+DOMAIN-KEYWORD,apple.com
+DOMAIN-KEYWORD,cdn-apple.com
+DOMAIN-KEYWORD,digicert.com
+DOMAIN-KEYWORD,edgesuite.net
+DOMAIN-KEYWORD,entrust.net
+DOMAIN-KEYWORD,icloud-content.com
+DOMAIN-KEYWORD,icloud.com
+DOMAIN-KEYWORD,itunes.com
+DOMAIN-KEYWORD,mac.com
+DOMAIN-KEYWORD,me.com
+DOMAIN-KEYWORD,mzstatic.com
+DOMAIN-KEYWORD,sectigo.com
+DOMAIN-SUFFIX,aaplimg.com
+DOMAIN-SUFFIX,apple
+DOMAIN-SUFFIX,apple-cloudkit.com
+DOMAIN-SUFFIX,apple-dns.net
+DOMAIN-SUFFIX,apple-livephotoskit.com
+DOMAIN-SUFFIX,apple-mapkit.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple.co
+DOMAIN-SUFFIX,apple.com
+DOMAIN-SUFFIX,cdn-apple.com
+DOMAIN-SUFFIX,cp4.cloudflare.com
+DOMAIN-SUFFIX,digicert.com
+DOMAIN-SUFFIX,edgesuite.net
+DOMAIN-SUFFIX,entrust.net
+DOMAIN-SUFFIX,icloud-content.com
+DOMAIN-SUFFIX,icloud.com
+DOMAIN-SUFFIX,itunes.com
+DOMAIN-SUFFIX,mac.com
+DOMAIN-SUFFIX,me.com
+DOMAIN-SUFFIX,mzstatic.com
+DOMAIN-SUFFIX,sectigo.com

@@ -1,0 +1,26 @@
+# FastlyIP IP Rules for Shadowrocket
+# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
+# 最后更新时间：2026-01-23T19:37:33.019435 UTC
+# 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/FastlyIP.list,你的策略组名
+
+IP-CIDR,103.244.50.0/24,no-resolve
+IP-CIDR,103.245.222.0/23,no-resolve
+IP-CIDR,103.245.224.0/24,no-resolve
+IP-CIDR,104.156.80.0/20,no-resolve
+IP-CIDR,140.248.128.0/17,no-resolve
+IP-CIDR,140.248.64.0/18,no-resolve
+IP-CIDR,146.75.0.0/17,no-resolve
+IP-CIDR,151.101.0.0/16,no-resolve
+IP-CIDR,157.52.64.0/18,no-resolve
+IP-CIDR,167.82.0.0/17,no-resolve
+IP-CIDR,167.82.128.0/20,no-resolve
+IP-CIDR,167.82.160.0/20,no-resolve
+IP-CIDR,167.82.224.0/20,no-resolve
+IP-CIDR,172.111.64.0/18,no-resolve
+IP-CIDR,185.31.16.0/22,no-resolve
+IP-CIDR,199.232.0.0/16,no-resolve
+IP-CIDR,199.27.72.0/21,no-resolve
+IP-CIDR,23.235.32.0/20,no-resolve
+IP-CIDR,43.249.72.0/22,no-resolve
+IP-CIDR6,2a04:4e40::/32,no-resolve
+IP-CIDR6,2a04:4e42::/32,no-resolve

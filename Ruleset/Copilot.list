@@ -1,0 +1,21 @@
+# Copilot Domain Rules for Shadowrocket
+# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
+# 最后更新时间：2026-01-23T19:37:32.086326 UTC
+# 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Copilot.list,你的策略组名
+
+DOMAIN-SUFFIX,access-point.cloudmessaging.edge.microsoft.com
+DOMAIN-SUFFIX,browser.pipe.aria.microsoft.com
+DOMAIN-SUFFIX,copilot.microsoft.com
+DOMAIN-SUFFIX,designer.microsoft.com
+DOMAIN-SUFFIX,designerapp.officeapps.live.com
+DOMAIN-SUFFIX,designerapp.osi.office.net
+DOMAIN-SUFFIX,ecs.office.com
+DOMAIN-SUFFIX,edge.microsoft.com
+DOMAIN-SUFFIX,edgeservices.bing.com
+DOMAIN-SUFFIX,events.data.microsoft.com
+DOMAIN-SUFFIX,functional.events.data.microsoft.com
+DOMAIN-SUFFIX,prod.do.dsp.mp.microsoft.com
+DOMAIN-SUFFIX,studiostaticassetsprod.azureedge.net
+DOMAIN-SUFFIX,sydney.bing.com
+DOMAIN-SUFFIX,www.bing.com
+DOMAIN-SUFFIX,www.bingapis.com
