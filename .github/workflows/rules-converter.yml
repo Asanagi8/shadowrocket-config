@@ -89,6 +89,12 @@ jobs:
                   'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/PreRepairEasyPrivacy/PreRepairEasyPrivacy_REJECT.yaml',
                   'output': 'Ruleset/PreRepairEasyPrivacy.list'
               },
+              {
+                  'name': 'FastlyIP',
+                  'type': 'ip',
+                  'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Fastly/Fastly_IP.yaml',
+                  'output': 'Ruleset/FastlyIP.list'
+              },
               # 在这里添加更多……
               # 示例添加 China（如果有）：
               # {
