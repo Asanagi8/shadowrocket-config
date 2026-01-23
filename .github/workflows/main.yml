@@ -1,0 +1,85 @@
+name: Sync and Convert Gemini Rules
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # 每天 UTC 时间 3:00 执行（北京/台湾时间约 11:00，可自行调整）
+  workflow_dispatch:      # 支持手动触发
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: pip install pyyaml
+
+      - name: Download original Clash rules
+        run: |
+          curl -L -o original.yaml https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Gemini/Gemini_Domain.yaml
+
+      - name: Convert to Shadowrocket format
+        run: |
+          python3 << EOF
+import yaml
+import datetime
+import re
+
+# 读取原文件
+with open('original.yaml', 'r', encoding='utf-8') as f:
+    data = yaml.safe_load(f)
+
+rules = set()  # 用 set 去重
+
+for item in data.get('payload', []):
+    if not isinstance(item, str):
+        continue
+    item = item.strip()
+    if item.startswith('+.'):
+        domain = item[2:]  # 去掉 +.
+        if '*' in domain:
+            # 处理通配：取 * 前面的部分作为关键字
+            base = re.split(r'\*', domain)[0].rstrip('.')
+            if base:
+                rules.add(f'DOMAIN-KEYWORD,{base}')
+        else:
+            rules.add(f'DOMAIN-SUFFIX,{domain}')
+    else:
+        # 不带 +. 的情况（如 google.com）
+        domain = item
+        if '*' in domain:
+            base = re.split(r'\*', domain)[0].rstrip('.')
+            if base:
+                rules.add(f'DOMAIN-KEYWORD,{base}')
+        else:
+            rules.add(f'DOMAIN,{domain}')
+
+# 排序并写入文件
+sorted_rules = sorted(rules)
+
+with open('Gemini.list', 'w', encoding='utf-8') as f:
+    f.write('# Gemini Domain Rules for Shadowrocket\n')
+    f.write('# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash\n')
+    f.write(f'# 最后更新时间：{datetime.datetime.utcnow().isoformat()} UTC\n')
+    f.write('# 使用方式：在小火箭配置中添加 RULE-SET,https://raw.githubusercontent.com/你的用户名/你的仓库名/main/Gemini.list,你的策略组名\n\n')
+    f.write('\n'.join(sorted_rules))
+    f.write('\n')
+EOF
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions@github.com'
+          git add Gemini.list
+          if git diff --staged --quiet; then
+            echo "无变化，无需提交"
+          else
+            git commit -m "Auto update Gemini rules $(date -u)"
+            git push
+          fi
