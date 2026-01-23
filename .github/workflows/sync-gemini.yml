@@ -69,7 +69,7 @@ jobs:
               f.write('# Gemini Domain Rules for Shadowrocket\n')
               f.write('# 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash\n')
               f.write(f'# 最后更新时间：{datetime.datetime.utcnow().isoformat()} UTC\n')
-              f.write('# 使用方式：在小火箭配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Gemini.list,你的策略组名\n\n')
+              f.write('# 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Gemini.list,你的策略组名\n\n')
               f.write('\n'.join(sorted_rules))
               f.write('\n')
           EOF
