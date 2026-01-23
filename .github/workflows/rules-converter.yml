@@ -90,6 +90,18 @@ jobs:
                   'output': 'Ruleset/PreRepairEasyPrivacy.list'
               },
               {
+                  'name': 'CloudflareIPv4',
+                  'type': 'ip',
+                  'source': 'https://www.cloudflare.com/ips-v4',
+                  'output': 'Ruleset/CloudflareIPv4.list'
+              },
+              {
+                  'name': 'CloudflareIPv6',
+                  'type': 'ip',
+                  'source': 'https://www.cloudflare.com/ips-v4',
+                  'output': 'Ruleset/CloudflareIPv6.list'
+              },
+              {
                   'name': 'FastlyIP',
                   'type': 'ip',
                   'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/main/Fastly/Fastly_IP.yaml',
