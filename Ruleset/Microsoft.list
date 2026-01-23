@@ -1,6 +1,6 @@
 # Microsoft Domain Rules for Shadowrocket
 # 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
-# 最后更新时间：2026-01-23T19:37:32.841604 UTC
+# 最后更新时间：2026-01-23T20:08:01.109649 UTC
 # 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Microsoft.list,你的策略组名
 
 DOMAIN-KEYWORD,1drv.com
