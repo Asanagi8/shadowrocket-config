@@ -57,7 +57,7 @@ jobs:
                   'name': 'Apple',
                   'type': 'domain',
                   'source': 'https://raw.githubusercontent.com/Accademia/Additional_Rule_For_Clash/refs/heads/main/Apple/Apple_Domain.yaml',
-                  'output': 'Ruleset/AppleAI.list'
+                  'output': 'Ruleset/Apple.list'
               },
               {
                   'name': 'AppleIP',
