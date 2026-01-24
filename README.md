@@ -13,7 +13,7 @@
 - 支持域名、IP、混合规则
 - IP 规则已加 `,no-resolve`
 
-生成的纯规则文件位于 `Ruleset/` 目录（可修改 workflow 自定义路径），可直接通过 raw 链接在小火箭中使用。
+生成的纯规则文件位于 `Ruleset/` 目录（可修改 workflow 自定义路径），可直接通过 raw 链接在Shadowrocket中使用。
 
 ## 致谢
 
