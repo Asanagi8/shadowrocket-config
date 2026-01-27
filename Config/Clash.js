@@ -44,7 +44,7 @@ const regionConfig = [
   },
   {
       name: "🌐 其他 📶",
-      icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Area.png"
+      icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png"
   }
 ];
 
@@ -463,7 +463,7 @@ function addRegions(config) {
     name: "地区选择",
     type: "select",
     proxies: regions,
-    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Global.png",
+    icon: "https://fastly.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Area.png",
   });
 
   // 3. 统一注入逻辑 (黑名单防御)
