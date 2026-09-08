@@ -1,6 +1,6 @@
 # Apple Domain Rules for Shadowrocket
 # 原作者仓库：https://github.com/Accademia/Additional_Rule_For_Clash
-# 最后更新时间：2026-09-07T02:51:55.788524 UTC
+# 最后更新时间：2026-09-08T03:01:30.276781 UTC
 # 使用方式：在Shadowrocket配置中添加 RULE-SET,https://raw.githubusercontent.com/Asanagi8/Rules/main/Ruleset/Apple.list,你的策略组名
 
 DOMAIN-KEYWORD,aaplimg.com
